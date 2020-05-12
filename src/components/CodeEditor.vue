@@ -2,8 +2,8 @@
   <div :class="$style.editor">
     <CodeEditorHeader />
     <div :class="$style.editor__content">
-      <CodeEditorFile />
-      <CodeEditorFile />
+      <CodeEditorFile v-bind:is-first="true">lorem lorem lorem</CodeEditorFile>
+      <CodeEditorFile>lorem lorem lorem</CodeEditorFile>
     </div>
   </div>
 </template>
@@ -27,12 +27,13 @@ export default {
   height: 100%;
   overflow: hidden;
   border-radius: 5px;
-  background: var(--dark-400);
-  border: 2px solid var(--dark-300);
+  background: var(--dark-300);
+  border: 2px solid var(--dark-500);
 }
 
 .editor__content {
   display: flex;
   flex-direction: row;
+  height: 100%;
 }
 </style>
