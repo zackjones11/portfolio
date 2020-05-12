@@ -27,6 +27,7 @@ export default {
   position: relative;
   flex: 1 0;
   color: var(--light-100);
+  padding: 20px;
 }
 
 .container::before {
