@@ -1,3 +1,28 @@
 :root {
-  --primary-color: black;
+  --purple: #9b6ed0;
+  --dark-purple: #1f1629;
+  --light-green: #72BF47;
+  --light-yellow: #E0C14C;
+  --light-red: #EC655A;
+  
+  --light-100: #ffffff;
+  --light-200: #ebebeb;
+  --light-300: #e1e1e1;
+  --light-400: #d7d7d7;
+  --light-500: #cdcdcd;
+
+  --dark-100: #000000;
+  --dark-200: #121212;
+  --dark-300: #1f1f1f;
+  --dark-400: #2d2d2d;
+  --dark-500: #363636;
+
+  --primary-color: var(--purple);
+
+  --font-open-sans: 'Open Sans', sans-serif;
+  --font-menlo: 'Menlo', 'Monaco', 'Courier New', monospace;
+
+  --weight-light: 300;
+  --weight-normal: 400;
+  --weight-bold: 700;
 }
