@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.file">
+  <div :class="[$style.file, $style[`file--type-${type}`]]">
     <CodeEditorFileTab :isFirst="isFirst" />
     <div :class="$style.file__inner">
       <slot></slot>
@@ -19,6 +19,11 @@ export default {
     isFirst: {
       type: Boolean,
       default: false
+    },
+    type: {
+      type: String,
+      default: "code",
+      validator: prop => ["code", "plain"].includes(prop)
     }
   }
 };
@@ -29,6 +34,10 @@ export default {
   position: relative;
   flex: 1 0;
   color: var(--light-100);
+}
+
+.file--type-code {
+  font-family: var(--font-menlo);
 }
 
 .file::before {

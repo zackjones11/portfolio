@@ -70,7 +70,7 @@
         vitae quibusdam tempore perferendis explicabo! Id illo necessitatibus
         libero error temporibus culpa corrupti! lorem <strong>END</strong>
       </CodeEditorFile>
-      <CodeEditorFile>lorem lorem lorem</CodeEditorFile>
+      <CodeEditorFile type="plain">lorem lorem lorem</CodeEditorFile>
     </div>
   </div>
 </template>
