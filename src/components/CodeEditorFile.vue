@@ -1,7 +1,9 @@
 <template>
-  <div :class="$style.container">
+  <div :class="$style.file">
     <CodeEditorFileTab :isFirst="isFirst" />
-    <slot></slot>
+    <div :class="$style.file__inner">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -23,14 +25,13 @@ export default {
 </script>
 
 <style module>
-.container {
+.file {
   position: relative;
   flex: 1 0;
   color: var(--light-100);
-  padding: 20px;
 }
 
-.container::before {
+.file::before {
   content: "";
   display: block;
   position: sticky;
@@ -39,5 +40,19 @@ export default {
   width: 100%;
   height: 20px;
   background-color: var(--dark-300);
+}
+
+.file__inner {
+  overflow: auto;
+  padding: 20px;
+  height: calc(100% - 50px);
+}
+
+.file__inner::-webkit-scrollbar {
+  width: 1em;
+}
+
+.file__inner::-webkit-scrollbar-thumb {
+  background-color: var(--dark-500);
 }
 </style>
