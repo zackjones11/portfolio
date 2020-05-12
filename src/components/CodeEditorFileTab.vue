@@ -27,6 +27,7 @@ export default {
   align-items: center;
   position: absolute;
   top: -35px;
+  left: 0;
   height: 35px;
   width: 270px;
   font-size: 13px;
