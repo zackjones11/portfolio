@@ -1,12 +1,27 @@
 <template>
-  <div id="app"></div>
+  <div :class="$style.app">
+    <CodeEditor> </CodeEditor>
+  </div>
 </template>
 
 <script>
+import CodeEditor from "./components/CodeEditor";
+
 export default {
   name: "App",
-  components: {}
+  components: {
+    CodeEditor
+  },
+  data() {
+    return {};
+  }
 };
 </script>
 
-<style module></style>
+<style module>
+.app {
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+}
+</style>
