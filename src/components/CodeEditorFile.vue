@@ -31,6 +31,7 @@ export default {
 
 .container::before {
   content: "";
+  display: block;
   position: sticky;
   top: 0;
   left: 0;
