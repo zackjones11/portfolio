@@ -1,7 +1,7 @@
 <template>
-  <div :class="[$style.file, $style[`file--type-${type}`]]">
+  <div :class="$style.file">
     <CodeEditorFileTab :isFirst="isFirst" />
-    <div :class="$style.file__inner">
+    <div :class="[$style.file__inner, $style[`file__inner--type-${type}`]]">
       <slot></slot>
     </div>
   </div>
@@ -36,10 +36,6 @@ export default {
   color: var(--light-100);
 }
 
-.file--type-code {
-  font-family: var(--font-menlo);
-}
-
 .file::before {
   content: "";
   display: block;
@@ -55,6 +51,10 @@ export default {
   overflow: auto;
   padding: 20px;
   height: calc(100% - 50px);
+}
+
+.file__inner--type-code {
+  font-family: var(--font-menlo);
 }
 
 .file__inner::-webkit-scrollbar {
