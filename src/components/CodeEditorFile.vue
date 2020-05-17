@@ -1,7 +1,8 @@
 <template>
   <div :class="$style.file">
     <CodeEditorFileTab :isFirst="isFirst" />
-    <div :class="[$style.file__inner, $style[`file__inner--type-${type}`]]">
+    <div :class="$style.file__inner">
+      <code v-if="code" class="language-markup">{{ code }}</code>
       <slot></slot>
     </div>
   </div>
@@ -9,6 +10,7 @@
 
 <script>
 import CodeEditorFileTab from "./CodeEditorFileTab";
+import "./code-theme.css";
 
 export default {
   name: "CodeEditorFile",
@@ -20,10 +22,9 @@ export default {
       type: Boolean,
       default: false
     },
-    type: {
+    code: {
       type: String,
-      default: "code",
-      validator: prop => ["code", "plain"].includes(prop)
+      default: ""
     }
   }
 };
@@ -51,10 +52,6 @@ export default {
   overflow: auto;
   padding: 20px;
   height: calc(100% - 50px);
-}
-
-.file__inner--type-code {
-  font-family: var(--font-menlo);
 }
 
 .file__inner::-webkit-scrollbar {

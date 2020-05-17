@@ -2,75 +2,8 @@
   <div :class="$style.editor">
     <CodeEditorHeader />
     <div :class="$style.editor__content">
-      <CodeEditorFile v-bind:is-first="true">
-        <strong>START</strong> Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Excepturi rerum maiores commodi eveniet quaerat
-        accusantium vitae odio facilis, perspiciatis sunt, deleniti repellendus.
-        Adipisci facilis quidem dicta praesentium consequatur dolor soluta.
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque
-        nihil, tenetur veritatis vel deleniti exercitationem vero voluptates
-        vitae quibusdam tempore perferendis explicabo! Id illo necessitatibus
-        libero error temporibus culpa corrupti! loremLorem ipsum dolor sit amet
-        consectetur adipisicing elit. Excepturi rerum maiores commodi eveniet
-        quaerat accusantium vitae odio facilis, perspiciatis sunt, deleniti
-        repellendus. Adipisci facilis quidem dicta praesentium consequatur dolor
-        soluta. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        Doloremque nihil, tenetur veritatis vel deleniti exercitationem vero
-        voluptates vitae quibusdam tempore perferendis explicabo! Id illo
-        necessitatibus libero error temporibus culpa corrupti! loremLorem ipsum
-        dolor sit amet consectetur adipisicing elit. Excepturi rerum maiores
-        commodi eveniet quaerat accusantium vitae odio facilis, perspiciatis
-        sunt, deleniti repellendus. Adipisci facilis quidem dicta praesentium
-        consequatur dolor soluta. Lorem ipsum dolor sit, amet consectetur
-        adipisicing elit. Doloremque nihil, tenetur veritatis vel deleniti
-        exercitationem vero voluptates vitae quibusdam tempore perferendis
-        explicabo! Id illo necessitatibus libero error temporibus culpa
-        corrupti! loremLorem ipsum dolor sit amet consectetur adipisicing elit.
-        Excepturi rerum maiores commodi eveniet quaerat accusantium vitae odio
-        facilis, perspiciatis sunt, deleniti repellendus. Adipisci facilis
-        quidem dicta praesentium consequatur dolor soluta. Lorem ipsum dolor
-        sit, amet consectetur adipisicing elit. Doloremque nihil, tenetur
-        veritatis vel deleniti exercitationem vero voluptates vitae quibusdam
-        tempore perferendis explicabo! Id illo necessitatibus libero error
-        temporibus culpa corrupti! loremLorem ipsum dolor sit amet consectetur
-        adipisicing elit. Excepturi rerum maiores commodi eveniet quaerat
-        accusantium vitae odio facilis, perspiciatis sunt, deleniti repellendus.
-        Adipisci facilis quidem dicta praesentium consequatur dolor soluta.
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque
-        nihil, tenetur veritatis vel deleniti exercitationem vero voluptates
-        vitae quibusdam tempore perferendis explicabo! Id illo necessitatibus
-        libero error temporibus culpa corrupti! loremLorem ipsum dolor sit amet
-        consectetur adipisicing elit. Excepturi rerum maiores commodi eveniet
-        quaerat accusantium vitae odio facilis, perspiciatis sunt, deleniti
-        repellendus. Adipisci facilis quidem dicta praesentium consequatur dolor
-        soluta. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        Doloremque nihil, tenetur veritatis vel deleniti exercitationem vero
-        voluptates vitae quibusdam tempore perferendis explicabo! Id illo
-        necessitatibus libero error temporibus culpa corrupti! loremLorem ipsum
-        dolor sit amet consectetur adipisicing elit. Excepturi rerum maiores
-        commodi eveniet quaerat accusantium vitae odio facilis, perspiciatis
-        sunt, deleniti repellendus. Adipisci facilis quidem dicta praesentium
-        consequatur dolor soluta. Lorem ipsum dolor sit, amet consectetur
-        adipisicing elit. Doloremque nihil, tenetur veritatis vel deleniti
-        exercitationem vero voluptates vitae quibusdam tempore perferendis
-        explicabo! Id illo necessitatibus libero error temporibus culpa
-        corrupti! loremLorem ipsum dolor sit amet consectetur adipisicing elit.
-        Excepturi rerum maiores commodi eveniet quaerat accusantium vitae odio
-        facilis, perspiciatis sunt, deleniti repellendus. Adipisci facilis
-        quidem dicta praesentium consequatur dolor soluta. Lorem ipsum dolor
-        sit, amet consectetur adipisicing elit. Doloremque nihil, tenetur
-        veritatis vel deleniti exercitationem vero voluptates vitae quibusdam
-        tempore perferendis explicabo! Id illo necessitatibus libero error
-        temporibus culpa corrupti! loremLorem ipsum dolor sit amet consectetur
-        adipisicing elit. Excepturi rerum maiores commodi eveniet quaerat
-        accusantium vitae odio facilis, perspiciatis sunt, deleniti repellendus.
-        Adipisci facilis quidem dicta praesentium consequatur dolor soluta.
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque
-        nihil, tenetur veritatis vel deleniti exercitationem vero voluptates
-        vitae quibusdam tempore perferendis explicabo! Id illo necessitatibus
-        libero error temporibus culpa corrupti! lorem <strong>END</strong>
-      </CodeEditorFile>
-      <CodeEditorFile type="plain">lorem lorem lorem</CodeEditorFile>
+      <CodeEditorFile v-bind:is-first="true" :code="introInCode" />
+      <CodeEditorFile><p>Hello there!</p></CodeEditorFile>
     </div>
   </div>
 </template>
@@ -79,11 +12,18 @@
 import CodeEditorHeader from "./CodeEditorHeader";
 import CodeEditorFile from "./CodeEditorFile";
 
+import introInCode from "./files/intro-in-code.txt";
+
 export default {
   name: "CodeEditor",
   components: {
     CodeEditorHeader,
     CodeEditorFile
+  },
+  data() {
+    return {
+      introInCode
+    };
   }
 };
 </script>

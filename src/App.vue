@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.app">
-    <CodeEditor> </CodeEditor>
+    <CodeEditor />
   </div>
 </template>
 
