@@ -4,22 +4,24 @@
     <div :class="$style.editor__content">
       <CodeEditorFile v-bind:is-first="true" :code="introInCode" />
       <CodeEditorFile>
-        <BaseLink href="https://github.com/zackjones11" target="_blank">
-          <BaseButton>
-            <BaseIcon name="github" />
-            Github
-          </BaseButton>
-        </BaseLink>
+        <div :class="$style.editor__socialButtons">
+          <BaseLink href="https://github.com/zackjones11" target="_blank">
+            <BaseButton>
+              <BaseIcon name="github" />
+              Github
+            </BaseButton>
+          </BaseLink>
 
-        <BaseLink
-          href="https://www.linkedin.com/in/zack-jones-6b76802b/"
-          target="_blank"
-        >
-          <BaseButton>
-            <BaseIcon name="linkedin" />
-            LinkedIn
-          </BaseButton>
-        </BaseLink>
+          <BaseLink
+            href="https://www.linkedin.com/in/zack-jones-6b76802b/"
+            target="_blank"
+          >
+            <BaseButton>
+              <BaseIcon name="linkedin" />
+              LinkedIn
+            </BaseButton>
+          </BaseLink>
+        </div>
       </CodeEditorFile>
     </div>
   </div>
@@ -59,5 +61,12 @@ export default {
   display: flex;
   flex-direction: row;
   height: 100%;
+}
+
+.editor__socialButtons {
+  display: grid;
+  grid-gap: 15px;
+  grid-auto-flow: column;
+  justify-content: flex-start;
 }
 </style>
