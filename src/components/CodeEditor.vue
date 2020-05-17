@@ -4,6 +4,7 @@
     <div :class="$style.editor__content">
       <CodeEditorFile v-bind:is-first="true" :code="introInCode" />
       <CodeEditorFile>
+        <BaseHeadline :level="3">Social</BaseHeadline>
         <div :class="$style.editor__socialButtons">
           <BaseLink href="https://github.com/zackjones11" target="_blank">
             <BaseButton>
