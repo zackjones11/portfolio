@@ -10,7 +10,7 @@
   <p>
     Moin moin! I am a frontend developer from London living in Hamburg.
     I currently work for ABOUT YOU GmbH within their Cloud division
-    developing the future of Content Management Systems. POW POW!
+    developing the future of Content Management Systems. POW!
   </p>
 
   <script type='text/javascript'>
