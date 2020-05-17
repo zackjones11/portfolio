@@ -10,7 +10,7 @@
 
 <script>
 import CodeEditorFileTab from "./CodeEditorFileTab";
-import "./code-theme.css";
+import "../code-theme.css";
 
 export default {
   name: "CodeEditorFile",
