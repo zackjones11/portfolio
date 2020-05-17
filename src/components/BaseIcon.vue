@@ -20,7 +20,7 @@ export default {
   props: {
     name: {
       type: String,
-      default: "box"
+      required: true
     },
     width: {
       type: Number,
