@@ -1,5 +1,5 @@
 <template>
-  <a :class="$style.link" :href="href" :target="target">
+  <a :class="$style.link" :href="href" :target="target" :rel="rel">
     <slot />
   </a>
 </template>
@@ -16,6 +16,10 @@ export default {
       type: String,
       validator: prop =>
         ["_blank", "_self", "_parent", "_top", "framename"].includes(prop)
+    },
+    rel: {
+      type: String,
+      default: "noopener"
     }
   }
 };
