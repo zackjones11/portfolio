@@ -12,7 +12,7 @@
 import CodeEditorHeader from "./CodeEditorHeader";
 import CodeEditorFile from "./CodeEditorFile";
 
-import introInCode from "./files/intro-in-code.txt";
+import introInCode from "./intro-in-code.txt";
 
 export default {
   name: "CodeEditor",
