@@ -3,7 +3,24 @@
     <CodeEditorHeader />
     <div :class="$style.editor__content">
       <CodeEditorFile v-bind:is-first="true" :code="introInCode" />
-      <CodeEditorFile><p>Hello there!</p></CodeEditorFile>
+      <CodeEditorFile>
+        <BaseLink href="https://github.com/zackjones11" target="_blank">
+          <BaseButton>
+            <BaseIcon name="github" />
+            Github
+          </BaseButton>
+        </BaseLink>
+
+        <BaseLink
+          href="https://www.linkedin.com/in/zack-jones-6b76802b/"
+          target="_blank"
+        >
+          <BaseButton>
+            <BaseIcon name="linkedin" />
+            LinkedIn
+          </BaseButton>
+        </BaseLink>
+      </CodeEditorFile>
     </div>
   </div>
 </template>
