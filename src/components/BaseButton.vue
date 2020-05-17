@@ -35,6 +35,7 @@ export default {
   color: var(--light-300);
   border: 2px solid var(--light-300);
   cursor: pointer;
+  outline: 0;
   transition: 0.1s background-color, color ease-in;
 }
 .button:hover {
