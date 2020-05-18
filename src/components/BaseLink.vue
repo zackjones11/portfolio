@@ -28,5 +28,7 @@ export default {
 <style module>
 .link {
   text-decoration: none;
+  color: var(--light-300);
+  font-weight: var(--weight-bold);
 }
 </style>
