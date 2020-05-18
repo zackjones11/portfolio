@@ -32,7 +32,7 @@
             >
             and
             <BaseLink href="https://aboutyou.de" target="_blank"
-              >ABOUT YOU GmbH</BaseLink
+              >ABOUT YOU GmbH <BaseIcon name="unicorn"/></BaseLink
             >. Want some more?
             <BaseLink download href="/Zack_Jones_CV.pdf"
               >Download my CV</BaseLink
