@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-  <title>Zack's Portfolio</title>
+  <title>Job Site</title>
 </head>
 <body>
 
   <h1>Looking for a developer?</h1>
 
   <p>
-    Moin moin! I am a frontend developer from London living in Hamburg.
-    I currently work for ABOUT YOU GmbH within their Cloud division
+    Moin moin! Zack is a frontend developer from London living in Hamburg.
+    He currently works for ABOUT YOU GmbH within their Cloud division
     developing the future of Content Management Systems. POW!
   </p>
 
@@ -36,12 +36,12 @@
       'Enzyme / React Testing Library'
     ];
 
-    const mySkills = [...languages, ...frameworks, ...libraries];
+    const candidateSkills = [...languages, ...frameworks, ...libraries];
 
     const ul = document.createElement('ul');
     ul.id = 'skills';
 
-    mySkills.map((skill) => {
+    candidateSkills.map((skill) => {
       const li = document.createElement('li');
       li.appendChild(document.createTextNode(skill));
       ul.appendChild(li);
