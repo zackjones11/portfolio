@@ -5,10 +5,11 @@
       <CodeEditorFile
         v-if="this.activeTabs.includes(1)"
         v-bind:is-first="true"
+        name="index.html"
         :code="introInCode"
       />
 
-      <CodeEditorFile v-if="this.activeTabs.includes(2)">
+      <CodeEditorFile v-if="this.activeTabs.includes(2)" name="about-me.html">
         <div :class="$style.editor__block">
           <BaseHeadline :level="3">Professional Me</BaseHeadline>
           <p>
@@ -85,7 +86,7 @@
         </div>
       </CodeEditorFile>
 
-      <CodeEditorFile v-if="this.activeTabs.includes(3)">
+      <CodeEditorFile v-if="this.activeTabs.includes(3)" name="play-snake.html">
         <p>Snake game...</p>
         <BaseButton @click="handleShowAboutMe">
           Back to About Me

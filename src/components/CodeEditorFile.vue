@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.file">
-    <CodeEditorFileTab :isFirst="isFirst" />
+    <CodeEditorFileTab :isFirst="isFirst" :title="name" />
     <div :class="$style.file__inner">
       <code v-if="code" class="language-markup">{{ code }}</code>
       <slot></slot>
@@ -21,6 +21,9 @@ export default {
     isFirst: {
       type: Boolean,
       default: false
+    },
+    name: {
+      type: String
     },
     code: {
       type: String,
