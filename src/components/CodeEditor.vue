@@ -2,8 +2,13 @@
   <div :class="$style.editor">
     <CodeEditorHeader />
     <div :class="$style.editor__content">
-      <CodeEditorFile v-bind:is-first="true" :code="introInCode" />
-      <CodeEditorFile>
+      <CodeEditorFile
+        v-if="this.activeTabs.includes(1)"
+        v-bind:is-first="true"
+        :code="introInCode"
+      />
+
+      <CodeEditorFile v-if="this.activeTabs.includes(2)">
         <div :class="$style.editor__block">
           <BaseHeadline :level="3">Professional Me</BaseHeadline>
           <p>
@@ -72,12 +77,19 @@
               </BaseButton>
             </BaseLink>
 
-            <BaseButton>
+            <BaseButton @click="handlePlaySnake">
               <BaseIcon name="square" :width="6" :height="6" />
               Play Snake
             </BaseButton>
           </div>
         </div>
+      </CodeEditorFile>
+
+      <CodeEditorFile v-if="this.activeTabs.includes(3)">
+        <p>Snake game...</p>
+        <BaseButton @click="handleShowAboutMe">
+          Back to About Me
+        </BaseButton>
       </CodeEditorFile>
     </div>
   </div>
@@ -89,6 +101,12 @@ import CodeEditorFile from "./CodeEditorFile";
 
 import introInCode from "./intro-in-code.txt";
 
+const TAB_INDEXES = {
+  IntroInCode: 1,
+  AboutMe: 2,
+  PlaySnake: 3
+};
+
 export default {
   name: "CodeEditor",
   components: {
@@ -97,8 +115,20 @@ export default {
   },
   data() {
     return {
-      introInCode
+      introInCode,
+      activeTabs: [TAB_INDEXES.IntroInCode, TAB_INDEXES.AboutMe]
     };
+  },
+  methods: {
+    handlePlaySnake() {
+      return (this.activeTabs = [
+        TAB_INDEXES.IntroInCode,
+        TAB_INDEXES.PlaySnake
+      ]);
+    },
+    handleShowAboutMe() {
+      return (this.activeTabs = [TAB_INDEXES.IntroInCode, TAB_INDEXES.AboutMe]);
+    }
   }
 };
 </script>
