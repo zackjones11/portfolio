@@ -27,7 +27,28 @@
             and
             <BaseLink href="https://aboutyou.de" target="_blank"
               >ABOUT YOU GmbH</BaseLink
+            >. Want some more?
+            <BaseLink download href="/Zack_Jones_CV.pdf"
+              >Download my CV</BaseLink
             >.
+          </p>
+        </div>
+
+        <div :class="$style.editor__block">
+          <BaseHeadline :level="3">Personal Me</BaseHeadline>
+          <p>
+            My long standing hobbies are traveling, CrossFit, fashion and
+            spending as much time as possible with loved ones while sipping on a
+            crafted flat white in a small café people watching.
+          </p>
+
+          <p>
+            I am one of those people with ever changing hobbies though, whenever
+            I hear of something that sounds the slightest bit interesting I need
+            to give it a go. My latest in this discovery phrase is standup
+            paddling and slacklining (which I can safely say is
+            <span :class="$style.editor__strike">slightly</span> much harder
+            than originally thought).
           </p>
         </div>
 
@@ -102,5 +123,9 @@ export default {
   grid-gap: 15px;
   grid-auto-flow: column;
   justify-content: flex-start;
+}
+
+.editor__strike {
+  text-decoration: line-through;
 }
 </style>
