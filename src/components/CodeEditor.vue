@@ -71,6 +71,11 @@
                 LinkedIn
               </BaseButton>
             </BaseLink>
+
+            <BaseButton>
+              <BaseIcon name="square" :width="6" :height="6" />
+              Play Snake
+            </BaseButton>
           </div>
         </div>
       </CodeEditorFile>
