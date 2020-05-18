@@ -1,5 +1,11 @@
 <template>
-  <a :class="$style.link" :href="href" :target="target" :rel="rel">
+  <a
+    :class="$style.link"
+    :href="href"
+    :target="target"
+    :rel="rel"
+    :download="download ? '' : false"
+  >
     <slot />
   </a>
 </template>
@@ -20,6 +26,10 @@ export default {
     rel: {
       type: String,
       default: "noopener"
+    },
+    download: {
+      type: Boolean,
+      default: false
     }
   }
 };
