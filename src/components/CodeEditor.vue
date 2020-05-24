@@ -87,7 +87,10 @@
       </CodeEditorFile>
 
       <CodeEditorFile v-if="this.activeTabs.includes(3)" name="play-snake.html">
-        <p>Snake game...</p>
+        <div :class="$style.editor__gameWrap">
+          <SnakeGame />
+        </div>
+
         <BaseButton @click="handleShowAboutMe">
           Back to About Me
         </BaseButton>
@@ -99,6 +102,7 @@
 <script>
 import CodeEditorHeader from "./CodeEditorHeader";
 import CodeEditorFile from "./CodeEditorFile";
+import SnakeGame from "./SnakeGame";
 
 import introInCode from "./intro-in-code.txt";
 
@@ -112,12 +116,13 @@ export default {
   name: "CodeEditor",
   components: {
     CodeEditorHeader,
-    CodeEditorFile
+    CodeEditorFile,
+    SnakeGame
   },
   data() {
     return {
       introInCode,
-      activeTabs: [TAB_INDEXES.IntroInCode, TAB_INDEXES.AboutMe]
+      activeTabs: [TAB_INDEXES.IntroInCode, TAB_INDEXES.PlaySnake]
     };
   },
   methods: {
@@ -163,5 +168,11 @@ export default {
 
 .editor__strike {
   text-decoration: line-through;
+}
+
+.editor__gameWrap {
+  display: block;
+  height: 100%;
+  margin-bottom: 15px;
 }
 </style>
