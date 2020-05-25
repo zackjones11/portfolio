@@ -79,6 +79,17 @@ export default {
     resetData() {
       Object.assign(this.$data, this.$options.data());
     },
+    onKeyPress(event) {
+      if (this.isGameOver && event.keyCode === SPACE_BAR_CODE) {
+        this.startGame();
+        return;
+      }
+
+      if (Object.keys(KEY_BIND).includes(`${event.keyCode}`)) {
+        event.preventDefault();
+        this.direction = KEY_BIND[event.keyCode];
+      }
+    },
     move() {
       const { Up, Down, Left, Right } = DIRECTIONS;
       const currentHead = this.snake[this.snake.length - 1];
@@ -127,17 +138,6 @@ export default {
     },
     hasEatenFood({ row, column }) {
       return this.food.row === row && this.food.column === column;
-    },
-    onKeyPress(event) {
-      if (this.isGameOver && event.keyCode === SPACE_BAR_CODE) {
-        this.startGame();
-        return;
-      }
-
-      if (Object.keys(KEY_BIND).includes(`${event.keyCode}`)) {
-        event.preventDefault();
-        this.direction = KEY_BIND[event.keyCode];
-      }
     }
   }
 };
