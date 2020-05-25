@@ -101,10 +101,9 @@ export default {
         }
       }[this.direction];
 
-      const { row, column } = newHead;
-
-      if (this.isOutside({ row, column })) {
+      if (this.isOutside(newHead) || this.hasBitSelf(newHead)) {
         this.endGame();
+        return;
       }
 
       this.snake = [...this.snake.slice(1), newHead];
@@ -115,6 +114,11 @@ export default {
         column > this.numOfCells ||
         row < 0 ||
         column < 0
+      );
+    },
+    hasBitSelf({ row, column }) {
+      return this.snake.some(
+        snakePart => snakePart.row === row && snakePart.column === column
       );
     },
     onKeyPress(event) {
