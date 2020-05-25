@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import { randomNumber } from "../helpers";
+
 const DIRECTIONS = Object.freeze({
   Up: "up",
   Down: "down",
@@ -117,11 +119,18 @@ export default {
         return;
       }
 
-      const snakeBody = this.hasEatenFood(currentHead)
-        ? this.snake
-        : this.snake.slice(1);
-
-      this.snake = [...snakeBody, newHead];
+      if (this.hasEatenFood(currentHead)) {
+        this.snake = [...this.snake, newHead];
+        this.addFood();
+      } else {
+        this.snake = [...this.snake.slice(1), newHead];
+      }
+    },
+    addFood() {
+      this.food = {
+        row: randomNumber({ min: 1, max: this.numOfCells }),
+        column: randomNumber({ min: 1, max: this.numOfCells })
+      };
     },
     isOutside({ row, column }) {
       return (
