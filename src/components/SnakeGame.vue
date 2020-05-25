@@ -174,8 +174,8 @@ export default {
   width: 100%;
   max-height: 400px;
   max-width: 400px;
-  border: 4px solid var(--brown);
-  background-color: var(--dirt-green);
+  border: 4px solid var(--brown-200);
+  background-color: var(--brown-100);
 }
 
 .board__gameOver {
@@ -185,7 +185,7 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: var(--dirt-green);
+  background-color: var(--brown-100);
 }
 
 .board__headline {
@@ -205,7 +205,7 @@ export default {
 }
 
 .snake {
-  background-color: var(--brown);
+  background-color: var(--light-yellow);
 }
 
 .food {
