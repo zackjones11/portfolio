@@ -106,7 +106,11 @@ export default {
         return;
       }
 
-      this.snake = [...this.snake.slice(1), newHead];
+      const snakeBody = this.isSnakeEatingFood(currentHead)
+        ? this.snake
+        : this.snake.slice(1);
+
+      this.snake = [...snakeBody, newHead];
     },
     isOutside({ row, column }) {
       return (
@@ -120,6 +124,9 @@ export default {
       return this.snake.some(
         snakePart => snakePart.row === row && snakePart.column === column
       );
+    },
+    isSnakeEatingFood({ row, column }) {
+      return this.food.row === row && this.food.column === column;
     },
     onKeyPress(event) {
       if (this.isGameOver && event.keyCode === SPACE_BAR_CODE) {
