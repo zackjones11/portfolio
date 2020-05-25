@@ -1,5 +1,10 @@
 <template>
-  <div :class="$style.board">
+  <div
+    :class="$style.board"
+    :style="{
+      gridTemplate: `repeat(${numOfCells}, 1fr) / repeat(${numOfCells}, 1fr)`
+    }"
+  >
     <div
       :style="{ gridRow: food.row, gridColumn: food.column }"
       :class="$style.food"
@@ -11,6 +16,12 @@
       :style="{ gridColumn: snakePart.column, gridRow: snakePart.row }"
       :class="$style.snake"
     />
+
+    <div v-if="isGameOver" :class="$style.board__gameOver">
+      <h2 :class="$style.board__headline">
+        PRESS <span>SPACEBAR</span> TO PLAY AGAIN
+      </h2>
+    </div>
   </div>
 </template>
 
@@ -29,17 +40,26 @@ const KEY_BIND = Object.freeze({
   39: DIRECTIONS.Right
 });
 
+const SPACE_BAR_CODE = 32;
+
 export default {
   name: "SnakeGame",
-  created() {
-    setInterval(this.move, 100);
-  },
   data() {
     return {
+      isGameOver: false,
       snake: [{ row: 4, column: 5 }],
       food: { row: 7, column: 10 },
       direction: DIRECTIONS.Right
     };
+  },
+  props: {
+    numOfCells: {
+      type: Number,
+      default: 30
+    }
+  },
+  created() {
+    this.startGame();
   },
   mounted() {
     window.addEventListener("keydown", this.onKeyPress);
@@ -48,6 +68,17 @@ export default {
     window.removeEventListener("keydown", this.onKeyPress);
   },
   methods: {
+    startGame() {
+      this.resetData();
+      this.gameInterval = setInterval(this.move, 100);
+    },
+    endGame() {
+      this.isGameOver = true;
+      clearInterval(this.gameInterval);
+    },
+    resetData() {
+      Object.assign(this.$data, this.$options.data());
+    },
     move() {
       const { Up, Down, Left, Right } = DIRECTIONS;
       const currentHead = this.snake[this.snake.length - 1];
@@ -70,9 +101,28 @@ export default {
         }
       }[this.direction];
 
+      const { row, column } = newHead;
+
+      if (this.isOutside({ row, column })) {
+        this.endGame();
+      }
+
       this.snake = [...this.snake.slice(1), newHead];
     },
+    isOutside({ row, column }) {
+      return (
+        row > this.numOfCells ||
+        column > this.numOfCells ||
+        row < 0 ||
+        column < 0
+      );
+    },
     onKeyPress(event) {
+      if (this.isGameOver && event.keyCode === SPACE_BAR_CODE) {
+        this.startGame();
+        return;
+      }
+
       if (Object.keys(KEY_BIND).includes(`${event.keyCode}`)) {
         event.preventDefault();
         this.direction = KEY_BIND[event.keyCode];
@@ -85,13 +135,39 @@ export default {
 <style module>
 .board {
   display: grid;
-  grid-template: repeat(30, 1fr) / repeat(30, 1fr);
+  position: relative;
   height: 100%;
   width: 100%;
   max-height: 400px;
   max-width: 400px;
-  background-color: var(--dirt-green);
   border: 4px solid var(--brown);
+  background-color: var(--dirt-green);
+}
+
+.board__gameOver {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--dirt-green);
+}
+
+.board__headline {
+  max-width: 200px;
+  text-align: center;
+  font-family: var(--font-bebas-neue);
+  letter-spacing: 5px;
+  line-height: 1.7;
+  font-size: 30px;
+}
+
+.board__headline span {
+  border: 2px solid var(--light-100);
+  padding: 2px 9px;
+  letter-spacing: 2px;
+  font-size: 39px;
 }
 
 .snake {
