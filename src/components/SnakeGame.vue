@@ -106,7 +106,7 @@ export default {
         return;
       }
 
-      const snakeBody = this.isSnakeEatingFood(currentHead)
+      const snakeBody = this.hasEatenFood(currentHead)
         ? this.snake
         : this.snake.slice(1);
 
@@ -125,7 +125,7 @@ export default {
         snakePart => snakePart.row === row && snakePart.column === column
       );
     },
-    isSnakeEatingFood({ row, column }) {
+    hasEatenFood({ row, column }) {
       return this.food.row === row && this.food.column === column;
     },
     onKeyPress(event) {
