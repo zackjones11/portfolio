@@ -89,7 +89,10 @@ export default {
 
       if (Object.keys(KEY_BIND).includes(`${event.keyCode}`)) {
         event.preventDefault();
-        this.direction = KEY_BIND[event.keyCode];
+
+        if (!this.isGoingBackwards(event.keyCode)) {
+          this.direction = KEY_BIND[event.keyCode];
+        }
       }
     },
     move() {
@@ -131,6 +134,17 @@ export default {
         row: randomNumber({ min: 1, max: this.numOfCells }),
         column: randomNumber({ min: 1, max: this.numOfCells })
       };
+    },
+    isGoingBackwards(keyCode) {
+      const { Up, Down, Left, Right } = DIRECTIONS;
+      const oposites = [
+        `${Up}:${Down}`,
+        `${Down}:${Up}`,
+        `${Left}:${Right}`,
+        `${Right}:${Left}`
+      ];
+
+      return oposites.includes(`${this.direction}:${KEY_BIND[keyCode]}`);
     },
     isOutside({ row, column }) {
       return (
