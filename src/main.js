@@ -14,12 +14,12 @@ const registerGlobalComponents = components => {
     Vue.component(name, components(key).default);
   });
 };
-
 const components = require.context(
   "./components",
   true,
   /Base[a-z0-9]+\.(vue)$/i
 );
+
 registerGlobalComponents(components);
 
 new Vue({

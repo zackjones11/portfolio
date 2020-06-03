@@ -26,23 +26,14 @@
 </template>
 
 <script>
-import { randomNumber } from "../helpers";
-
-const DIRECTIONS = Object.freeze({
-  Up: "up",
-  Down: "down",
-  Left: "left",
-  Right: "right"
-});
-
-const KEY_BIND = Object.freeze({
-  38: DIRECTIONS.Up,
-  40: DIRECTIONS.Down,
-  37: DIRECTIONS.Left,
-  39: DIRECTIONS.Right
-});
-
-const SPACE_BAR_CODE = 32;
+import { randomNumber } from "../../utils";
+import { DIRECTIONS, KEY_BIND, SPACE_BAR_CODE } from "./constants";
+import {
+  hasBitSelf,
+  hasEatenFood,
+  isOutside,
+  isGoingBackwards
+} from "./helpers";
 
 export default {
   name: "SnakeGame",
@@ -82,16 +73,21 @@ export default {
       Object.assign(this.$data, this.$options.data());
     },
     onKeyPress(event) {
-      if (this.isGameOver && event.keyCode === SPACE_BAR_CODE) {
+      const keyCode = event.keyCode;
+      if (this.isGameOver && keyCode === SPACE_BAR_CODE) {
+        event.preventDefault();
         this.startGame();
-        return;
       }
 
-      if (Object.keys(KEY_BIND).includes(`${event.keyCode}`)) {
+      if (Object.keys(KEY_BIND).includes(`${keyCode}`)) {
         event.preventDefault();
-
-        if (!this.isGoingBackwards(event.keyCode)) {
-          this.direction = KEY_BIND[event.keyCode];
+        if (
+          !isGoingBackwards({
+            direction: this.direction,
+            keyCode
+          })
+        ) {
+          this.direction = KEY_BIND[keyCode];
         }
       }
     },
@@ -117,12 +113,15 @@ export default {
         }
       }[this.direction];
 
-      if (this.isOutside(newHead) || this.hasBitSelf(newHead)) {
+      if (
+        isOutside(this.numOfCells, newHead) ||
+        hasBitSelf(this.snake, newHead)
+      ) {
         this.endGame();
         return;
       }
 
-      if (this.hasEatenFood(currentHead)) {
+      if (hasEatenFood(this.food, currentHead)) {
         this.snake = [...this.snake, newHead];
         this.addFood();
       } else {
@@ -134,33 +133,6 @@ export default {
         row: randomNumber({ min: 1, max: this.numOfCells }),
         column: randomNumber({ min: 1, max: this.numOfCells })
       };
-    },
-    isGoingBackwards(keyCode) {
-      const { Up, Down, Left, Right } = DIRECTIONS;
-      const oposites = [
-        `${Up}:${Down}`,
-        `${Down}:${Up}`,
-        `${Left}:${Right}`,
-        `${Right}:${Left}`
-      ];
-
-      return oposites.includes(`${this.direction}:${KEY_BIND[keyCode]}`);
-    },
-    isOutside({ row, column }) {
-      return (
-        row > this.numOfCells ||
-        column > this.numOfCells ||
-        row < 0 ||
-        column < 0
-      );
-    },
-    hasBitSelf({ row, column }) {
-      return this.snake.some(
-        snakePart => snakePart.row === row && snakePart.column === column
-      );
-    },
-    hasEatenFood({ row, column }) {
-      return this.food.row === row && this.food.column === column;
     }
   }
 };
