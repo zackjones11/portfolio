@@ -25,7 +25,7 @@ export default {
 .button {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 12px 25px;
   min-width: 150px;
   font-weight: var(--weight-bold);
@@ -38,6 +38,11 @@ export default {
   outline: 0;
   transition: 0.1s background-color, color ease-in;
 }
+
+.button svg {
+  margin-right: 15px;
+}
+
 .button:hover {
   background-color: var(--light-300);
   color: var(--dark-300);
