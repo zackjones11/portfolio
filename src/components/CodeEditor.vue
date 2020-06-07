@@ -122,7 +122,7 @@ export default {
   data() {
     return {
       introInCode,
-      activeTabs: [TAB_INDEXES.IntroInCode, TAB_INDEXES.PlaySnake]
+      activeTabs: [TAB_INDEXES.IntroInCode, TAB_INDEXES.AboutMe]
     };
   },
   methods: {
