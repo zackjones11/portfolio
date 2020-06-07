@@ -1,9 +1,9 @@
-import { mount } from "@vue/test-utils";
+import { shallowMount } from "@vue/test-utils";
 import BaseIcon from "./BaseIcon.vue";
 
 describe("BaseIcon.vue", () => {
   it("should render SVG", () => {
-    const wrapper = mount(BaseIcon, {
+    const wrapper = shallowMount(BaseIcon, {
       propsData: {
         name: "mock-svg"
       },
