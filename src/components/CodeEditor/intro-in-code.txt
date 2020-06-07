@@ -43,7 +43,9 @@
 
     candidateSkills.map((skill) => {
       const li = document.createElement('li');
-      li.appendChild(document.createTextNode(skill));
+      const text = document.createTextNode(skill);
+      
+      li.appendChild(text);
       ul.appendChild(li);
     });
 
