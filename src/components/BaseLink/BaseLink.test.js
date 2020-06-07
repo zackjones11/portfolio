@@ -16,10 +16,11 @@ describe("BaseLink.vue", () => {
     const wrapper = shallowMount(BaseLink, {
       propsData: {
         href: "./placeholder.pdf",
-        download: true
+        download: true,
+        downloadName: "Placeholder"
       }
     });
 
-    expect(wrapper.find("a").attributes("download")).toBeTruthy();
+    expect(wrapper.find("a").attributes("download")).toBe("Placeholder");
   });
 });

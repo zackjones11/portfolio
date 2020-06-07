@@ -34,7 +34,10 @@
             <BaseLink href="https://aboutyou.de" target="_blank"
               >ABOUT YOU GmbH <BaseIcon name="unicorn"/></BaseLink
             >. Want to know more?
-            <BaseLink download href="/Zack_Jones_CV.pdf"
+            <BaseLink
+              download
+              downloadName="Zack_Jones_CV"
+              href="/Zack_Jones_CV.pdf"
               >Download my CV</BaseLink
             >.
           </p>

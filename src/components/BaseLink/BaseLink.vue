@@ -4,7 +4,7 @@
     :href="href"
     :target="target"
     :rel="rel"
-    :download="download"
+    :download="download ? downloadName : false"
   >
     <slot />
   </a>
@@ -30,6 +30,10 @@ export default {
     download: {
       type: Boolean,
       default: false
+    },
+    downloadName: {
+      type: String,
+      default: "download"
     }
   }
 };
