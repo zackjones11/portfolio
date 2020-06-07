@@ -13,7 +13,7 @@ import FileTab from "../FileTab";
 import "../../../code-theme.css";
 
 export default {
-  name: "CodeEditor__File",
+  name: "CodeEditorFile",
   components: {
     FileTab
   },

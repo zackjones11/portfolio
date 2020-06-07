@@ -12,7 +12,7 @@
 import HeadButton from "../HeadButton";
 
 export default {
-  name: "CodeEditor__Head",
+  name: "CodeEditorHead",
   components: {
     HeadButton
   }
