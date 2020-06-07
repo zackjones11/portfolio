@@ -4,7 +4,7 @@
     :href="href"
     :target="target"
     :rel="rel"
-    :download="download ? '' : false"
+    :download="download"
   >
     <slot />
   </a>
