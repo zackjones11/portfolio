@@ -78,7 +78,7 @@
               </BaseButton>
             </BaseLink>
 
-            <BaseButton @click="handlePlaySnake">
+            <BaseButton @click="handlePlaySnake" data-test-id="playSnakeBtn">
               <BaseIcon name="square" :width="6" :height="6" />
               Play Snake
             </BaseButton>
@@ -106,7 +106,7 @@ import SnakeGame from "../SnakeGame";
 
 import introInCode from "./intro-in-code.txt";
 
-const TAB_INDEXES = {
+export const TAB_INDEXES = {
   IntroInCode: 1,
   AboutMe: 2,
   PlaySnake: 3

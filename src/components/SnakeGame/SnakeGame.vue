@@ -1,4 +1,4 @@
-<template>
+<template data-test-id="snakeGameView">
   <div
     :class="$style.board"
     :style="{
