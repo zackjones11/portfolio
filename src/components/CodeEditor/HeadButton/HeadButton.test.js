@@ -1,10 +1,10 @@
 import { shallowMount } from "@vue/test-utils";
-import CodeEditorHeaderButton from "./CodeEditorHeaderButton.vue";
+import HeadButton from "./HeadButton.vue";
 
-describe("CodeEditorHeaderButton.vue", () => {
+describe("CodeEditor/HeadButton.vue", () => {
   it("should add correct class for colour", () => {
     const color = "green";
-    const wrapper = shallowMount(CodeEditorHeaderButton, {
+    const wrapper = shallowMount(HeadButton, {
       propsData: { color }
     });
     expect(wrapper.find(`.button--${color}`).exists()).toBeTruthy();

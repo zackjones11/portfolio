@@ -41,7 +41,7 @@ export default {
         import(
           /* webpackChunkName: "icons" */
           /* webpackMode: "lazy-once" */
-          `../icons/${this.name}.svg`
+          `../../icons/${this.name}.svg`
         );
     }
   }

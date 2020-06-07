@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "CodeEditorHeaderButton",
+  name: "CodeEditor__HeadButton",
   props: {
     color: {
       type: String,

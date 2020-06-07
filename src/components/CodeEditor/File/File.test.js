@@ -1,9 +1,9 @@
 import { shallowMount } from "@vue/test-utils";
-import CodeEditorFile from "./CodeEditorFile.vue";
+import File from "./File.vue";
 
-describe("CodeEditorFile.vue", () => {
+describe("CodeEditor/File.vue", () => {
   it("should show code tag if a code file", () => {
-    const wrapper = shallowMount(CodeEditorFile, {
+    const wrapper = shallowMount(File, {
       propsData: {
         code: "<p>test</p>"
       }
@@ -13,7 +13,7 @@ describe("CodeEditorFile.vue", () => {
   });
 
   it("should display slot if defined", () => {
-    const wrapper = shallowMount(CodeEditorFile, {
+    const wrapper = shallowMount(File, {
       slots: {
         default: "Lorem lorem lorem lorem"
       }

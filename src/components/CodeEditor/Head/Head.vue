@@ -1,20 +1,20 @@
 <template>
   <div :class="$style.header">
     <div :class="$style.header__actions">
-      <CodeEditorHeaderButton color="red" />
-      <CodeEditorHeaderButton color="yellow" />
-      <CodeEditorHeaderButton color="green" />
+      <HeadButton color="red" />
+      <HeadButton color="yellow" />
+      <HeadButton color="green" />
     </div>
   </div>
 </template>
 
 <script>
-import CodeEditorHeaderButton from "./CodeEditorHeaderButton";
+import HeadButton from "../HeadButton";
 
 export default {
-  name: "CodeEditorHeader",
+  name: "CodeEditor__Head",
   components: {
-    CodeEditorHeaderButton
+    HeadButton
   }
 };
 </script>

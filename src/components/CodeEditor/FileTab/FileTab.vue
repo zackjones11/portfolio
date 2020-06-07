@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "CodeEditorFileTab",
+  name: "CodeEditor__FileTab",
   props: {
     title: {
       type: String,

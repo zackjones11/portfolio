@@ -1,9 +1,9 @@
 import { shallowMount } from "@vue/test-utils";
-import CodeEditorFileTab from "./CodeEditorFileTab.vue";
+import FileTab from "./FileTab.vue";
 
-describe("CodeEditorFileTab.vue", () => {
+describe("CodeEditor/FileTab.vue", () => {
   it("should change left position if isFirt", () => {
-    const wrapper = shallowMount(CodeEditorFileTab, {
+    const wrapper = shallowMount(FileTab, {
       propsData: {
         isFirst: true
       }
@@ -13,13 +13,13 @@ describe("CodeEditorFileTab.vue", () => {
   });
 
   it("should show Untitled if no title passed", () => {
-    const wrapper = shallowMount(CodeEditorFileTab);
+    const wrapper = shallowMount(FileTab);
 
     expect(wrapper.find(".tab").text()).toBe("Untitled");
   });
 
   it("should show defiend title if passed", () => {
-    const wrapper = shallowMount(CodeEditorFileTab, {
+    const wrapper = shallowMount(FileTab, {
       propsData: {
         title: "About Me"
       }

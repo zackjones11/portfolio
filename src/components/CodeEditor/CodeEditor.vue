@@ -1,15 +1,15 @@
 <template>
   <div :class="$style.editor">
-    <CodeEditorHeader />
+    <Head />
     <div :class="$style.editor__content">
-      <CodeEditorFile
+      <File
         v-if="this.activeTabs.includes(1)"
         v-bind:is-first="true"
         name="index.html"
         :code="introInCode"
       />
 
-      <CodeEditorFile v-if="this.activeTabs.includes(2)" name="about-me.html">
+      <File v-if="this.activeTabs.includes(2)" name="about-me.html">
         <div :class="$style.editor__block">
           <BaseHeadline :level="3">Professional Me</BaseHeadline>
           <p>
@@ -84,9 +84,9 @@
             </BaseButton>
           </div>
         </div>
-      </CodeEditorFile>
+      </File>
 
-      <CodeEditorFile v-if="this.activeTabs.includes(3)" name="play-snake.html">
+      <File v-if="this.activeTabs.includes(3)" name="play-snake.html">
         <div :class="$style.editor__gameWrap">
           <SnakeGame />
         </div>
@@ -94,15 +94,15 @@
         <BaseButton @click="handleShowAboutMe">
           Back to About Me
         </BaseButton>
-      </CodeEditorFile>
+      </File>
     </div>
   </div>
 </template>
 
 <script>
-import CodeEditorHeader from "./CodeEditorHeader";
-import CodeEditorFile from "./CodeEditorFile";
-import SnakeGame from "./SnakeGame";
+import Head from "./Head";
+import File from "./File";
+import SnakeGame from "../SnakeGame";
 
 import introInCode from "./intro-in-code.txt";
 
@@ -115,8 +115,8 @@ const TAB_INDEXES = {
 export default {
   name: "CodeEditor",
   components: {
-    CodeEditorHeader,
-    CodeEditorFile,
+    Head,
+    File,
     SnakeGame
   },
   data() {
