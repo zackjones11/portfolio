@@ -12,4 +12,14 @@ describe("BaseButton.vue", () => {
 
     expect(wrapper.emitted().click[1]).toEqual(["clicked"]);
   });
+
+  it("should display slot as text", () => {
+    const wrapper = shallowMount(BaseButton, {
+      slots: {
+        default: "Click Me"
+      }
+    });
+
+    expect(wrapper.text()).toBe("Click Me");
+  });
 });
