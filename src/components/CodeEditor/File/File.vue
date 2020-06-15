@@ -1,6 +1,5 @@
 <template>
   <div :class="$style.file">
-    <FileTab :isFirst="isFirst" :title="name" />
     <div :class="$style.file__inner">
       <code v-if="code" class="language-markup">{{ code }}</code>
       <slot></slot>
@@ -9,14 +8,10 @@
 </template>
 
 <script>
-import FileTab from "../FileTab";
 import "../../../code-theme.css";
 
 export default {
   name: "CodeEditorFile",
-  components: {
-    FileTab
-  },
   props: {
     isFirst: {
       type: Boolean,

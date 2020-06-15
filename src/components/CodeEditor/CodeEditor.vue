@@ -1,15 +1,15 @@
 <template>
   <div :class="$style.editor">
     <Head />
+    <TabGroup />
     <div :class="$style.editor__content">
       <File
-        v-if="this.activeTabs.includes(1)"
+        v-if="openTabs.find(({ id }) => id === 1)"
         v-bind:is-first="true"
-        name="index.html"
         :code="introInCode"
       />
 
-      <File v-if="this.activeTabs.includes(2)" name="about-me.html">
+      <File v-if="openTabs.find(({ id }) => id === 2)">
         <div :class="$style.editor__block">
           <BaseHeadline :level="3">Professional Me</BaseHeadline>
           <p>
@@ -89,54 +89,38 @@
         </div>
       </File>
 
-      <File v-if="this.activeTabs.includes(3)" name="play-snake.html">
+      <File v-if="openTabs.find(({ id }) => id === 3)">
         <div :class="$style.editor__gameWrap">
           <SnakeGame />
         </div>
-
-        <BaseButton @click="handleShowAboutMe">
-          Back to About Me
-        </BaseButton>
       </File>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import Head from "./Head";
 import File from "./File";
+import TabGroup from "./TabGroup";
 import SnakeGame from "../SnakeGame";
-
 import introInCode from "./intro-in-code.txt";
-
-export const TAB_INDEXES = {
-  IntroInCode: 1,
-  AboutMe: 2,
-  PlaySnake: 3
-};
 
 export default {
   name: "CodeEditor",
   components: {
     Head,
     File,
+    TabGroup,
     SnakeGame
   },
   data() {
-    return {
-      introInCode,
-      activeTabs: [TAB_INDEXES.IntroInCode, TAB_INDEXES.AboutMe]
-    };
+    return { introInCode };
   },
+  computed: mapGetters("tabs", ["openTabs"]),
   methods: {
     handlePlaySnake() {
-      return (this.activeTabs = [
-        TAB_INDEXES.IntroInCode,
-        TAB_INDEXES.PlaySnake
-      ]);
-    },
-    handleShowAboutMe() {
-      return (this.activeTabs = [TAB_INDEXES.IntroInCode, TAB_INDEXES.AboutMe]);
+      console.log("play snake");
     }
   }
 };

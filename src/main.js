@@ -1,6 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import VuePrism from "vue-prism";
+import store from "./store";
 
 import "./variables.css";
 import "./main.css";
@@ -23,5 +24,6 @@ const components = require.context(
 registerGlobalComponents(components);
 
 new Vue({
-  render: h => h(App)
+  render: h => h(App),
+  store
 }).$mount("#app");
