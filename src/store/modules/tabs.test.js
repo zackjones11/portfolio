@@ -18,15 +18,29 @@ describe("tabs mutations", () => {
 });
 
 describe("tabs getters", () => {
-  it("openTabs should return only tab state with isActive", () => {
+  it("allTabs should return all tabs state", () => {
     const state = {
-      tabs: [
-        { id: 1, isActive: true },
-        { id: 2, isActive: true },
-        { id: 3, isActive: false }
-      ]
+      tabs: [{ id: 1 }, { id: 2 }, { id: 3 }]
     };
 
-    expect(tabs.getters.openTabs(state)).toHaveLength(2);
+    expect(tabs.getters.allTabs(state)).toHaveLength(3);
+  });
+
+  it("isClosable should return true if isCloseable", () => {
+    const state = {
+      tabs: [{ id: 1 }, { id: 2, isCloseable: true }, { id: 3 }]
+    };
+    const tabId = 2;
+
+    expect(tabs.getters.isCloseable(state)(tabId)).toBeTruthy();
+  });
+
+  it("isClosable should return false if NOT isCloseable", () => {
+    const state = {
+      tabs: [{ id: 1, isCloseable: false }, { id: 2 }, { id: 3 }]
+    };
+    const tabId = 1;
+
+    expect(tabs.getters.isCloseable(state)(tabId)).toBeFalsy();
   });
 });

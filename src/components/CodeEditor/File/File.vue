@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.file">
+  <div :class="$style.file" @click="handleClick">
     <div :class="$style.file__inner">
       <code v-if="code" class="language-markup">{{ code }}</code>
       <slot></slot>
@@ -17,12 +17,22 @@ export default {
       type: Boolean,
       default: false
     },
+    id: {
+      type: Number,
+      required: true
+    },
     name: {
-      type: String
+      type: String,
+      default: "Untitled"
     },
     code: {
       type: String,
       default: ""
+    }
+  },
+  methods: {
+    handleClick() {
+      this.$emit("click", this.id);
     }
   }
 };

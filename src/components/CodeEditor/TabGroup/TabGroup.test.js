@@ -17,7 +17,7 @@ describe("CodeEditor/TabGroup.vue", () => {
         closeTab: jest.fn()
       },
       getters: {
-        openTabs: () => [{ id: 1 }, { id: 2 }]
+        allTabs: () => [{ id: 1 }, { id: 2 }]
       }
     };
     store = new Vuex.Store({
@@ -27,7 +27,7 @@ describe("CodeEditor/TabGroup.vue", () => {
     });
   });
 
-  it('should render "store.getters.tabs.openTabs"', () => {
+  it('should render "store.getters.tabs.allTabs"', () => {
     const wrapper = shallowMount(TabGroup, { store, localVue });
     expect(wrapper.findAllComponents(Tab)).toHaveLength(2);
   });

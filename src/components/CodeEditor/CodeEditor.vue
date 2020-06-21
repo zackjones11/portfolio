@@ -4,12 +4,18 @@
     <TabGroup />
     <div :class="$style.editor__content">
       <File
-        v-if="openTabs.find(({ id }) => id === 1)"
+        v-if="allTabs.find(({ id, isOpen }) => id === 1 && isOpen)"
         v-bind:is-first="true"
         :code="introInCode"
+        :id="1"
+        @click="selectTab"
       />
 
-      <File v-if="openTabs.find(({ id }) => id === 2)">
+      <File
+        v-if="allTabs.find(({ id, isOpen }) => id === 2 && isOpen)"
+        :id="2"
+        @click="selectTab"
+      >
         <div :class="$style.editor__block">
           <BaseHeadline :level="3">Professional Me</BaseHeadline>
           <p>
@@ -89,7 +95,11 @@
         </div>
       </File>
 
-      <File v-if="openTabs.find(({ id }) => id === 3)">
+      <File
+        :id="3"
+        v-if="allTabs.find(({ id, isOpen }) => id === 3 && isOpen)"
+        @click="selectTab"
+      >
         <div :class="$style.editor__gameWrap">
           <SnakeGame />
         </div>
@@ -99,7 +109,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import Head from "./Head";
 import File from "./File";
 import TabGroup from "./TabGroup";
@@ -117,11 +127,16 @@ export default {
   data() {
     return { introInCode };
   },
-  computed: mapGetters("tabs", ["openTabs"]),
+  computed: mapGetters("tabs", ["allTabs"]),
   methods: {
     handlePlaySnake() {
-      console.log("play snake");
-    }
+      this.openTab(3);
+      this.selectTab(3);
+    },
+    ...mapActions({
+      openTab: "tabs/openTab",
+      selectTab: "tabs/selectTab"
+    })
   }
 };
 </script>

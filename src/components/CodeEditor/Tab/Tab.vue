@@ -1,7 +1,9 @@
 <template>
-  <div :class="$style.tab">
+  <div
+    :class="[$style.tab, { [$style['tab--selected']]: isSelected }]"
+    @click="onClick"
+  >
     <span data-test-id="tabTitle">{{ title }}</span>
-    <button :class="$style.tab__close" @click="onClose">x</button>
   </div>
 </template>
 
@@ -16,11 +18,15 @@ export default {
     title: {
       type: String,
       default: "Untitled"
+    },
+    isSelected: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
-    onClose() {
-      this.$emit("on-close", this.id);
+    onClick() {
+      this.$emit("click", this.id);
     }
   }
 };
@@ -38,6 +44,13 @@ export default {
   background: var(--dark-300);
   color: var(--light-500);
   letter-spacing: 1px;
+  opacity: 0.5;
+  user-select: none;
+  cursor: pointer;
+}
+
+.tab--selected {
+  opacity: 1;
 }
 
 .tab:not(:last-child):after {
@@ -47,19 +60,6 @@ export default {
   width: 1px;
   background: var(--dark-500);
   right: 0;
-}
-
-.tab__close {
-  position: absolute;
-  right: 15px;
-  font-size: 10px;
-  cursor: pointer;
-  font-weight: var(--weight-bold);
-  opacity: 0.5;
-  background: none;
-  border: none;
-  color: white;
-  outline: 0;
 }
 
 .tab__close:hover {

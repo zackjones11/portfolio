@@ -1,11 +1,14 @@
 <template>
   <div :class="$style.tabGroup">
     <Tab
-      v-for="tab in openTabs"
+      v-for="tab in allTabs"
       :key="tab.id"
       :id="tab.id"
       :title="tab.title"
-      @on-close="handleClose"
+      :isSelected="tab.isSelected"
+      :isCloseable="tab.isCloseable"
+      @close="handleClose"
+      @click="handleClick"
     />
   </div>
 </template>
@@ -19,11 +22,17 @@ export default {
   components: {
     Tab
   },
-  computed: mapGetters("tabs", ["openTabs"]),
+  computed: mapGetters("tabs", ["allTabs"]),
   methods: {
     ...mapActions({
-      handleClose: "tabs/closeTab"
-    })
+      handleClose: "tabs/closeTab",
+      openTab: "tabs/openTab",
+      selectTab: "tabs/selectTab"
+    }),
+    handleClick(tabId) {
+      this.selectTab(tabId);
+      this.openTab(tabId);
+    }
   }
 };
 </script>
