@@ -3,14 +3,17 @@
     <Head />
     <TabGroup />
     <div :class="$style.editor__content">
-      <IntroInCode />
-      <AboutMe />
-      <PlaySnake />
+      <IntroInCode v-if="openTabIds.includes(TAB_IDS.IntroInCode)" />
+      <AboutMe v-if="openTabIds.includes(TAB_IDS.AboutMe)" />
+      <PlaySnake v-if="openTabIds.includes(TAB_IDS.PlaySnake)" />
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
+import { TAB_IDS } from "../../store/modules/tabs";
 import Head from "./Head";
 import TabGroup from "./TabGroup";
 import IntroInCode from "./files/IntroInCode";
@@ -25,7 +28,11 @@ export default {
     IntroInCode,
     AboutMe,
     PlaySnake
-  }
+  },
+  data() {
+    return { TAB_IDS };
+  },
+  computed: mapGetters("tabs", ["openTabIds"])
 };
 </script>
 

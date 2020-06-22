@@ -1,8 +1,5 @@
 <template>
-  <File
-    v-if="allTabs.find(({ id, isOpen }) => id === 2 && isOpen)"
-    @click="selectTab"
-  >
+  <File @click="selectTab">
     <div :class="$style.aboutMe__block">
       <BaseHeadline :level="3">Professional Me</BaseHeadline>
       <p>
@@ -84,13 +81,12 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions } from "vuex";
 import File from "../File";
 
 export default {
   name: "AboutMe",
   components: { File },
-  computed: mapGetters("tabs", ["allTabs"]),
   methods: {
     handlePlaySnake() {
       this.openTab(3);

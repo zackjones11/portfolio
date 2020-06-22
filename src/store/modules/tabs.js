@@ -1,6 +1,6 @@
 import * as types from "../mutation-types";
 
-export const TAB_INDEX = Object.freeze({
+export const TAB_IDS = Object.freeze({
   IntroInCode: 1,
   AboutMe: 2,
   PlaySnake: 3
@@ -9,21 +9,21 @@ export const TAB_INDEX = Object.freeze({
 const state = () => ({
   tabs: [
     {
-      id: TAB_INDEX.IntroInCode,
+      id: TAB_IDS.IntroInCode,
       isSelected: true,
       isOpen: true,
       isCloseable: false,
       title: "index.html"
     },
     {
-      id: TAB_INDEX.AboutMe,
+      id: TAB_IDS.AboutMe,
       isSelected: false,
       isOpen: true,
       isCloseable: true,
       title: "about-me.html"
     },
     {
-      id: TAB_INDEX.PlaySnake,
+      id: TAB_IDS.PlaySnake,
       isSelected: false,
       isCloseable: true,
       title: "play-snake.html"
@@ -34,7 +34,9 @@ const state = () => ({
 const getters = {
   isCloseable: state => tabId =>
     state.tabs.some(tab => tab.id === tabId && tab.isCloseable),
-  allTabs: state => state.tabs
+  allTabs: state => state.tabs,
+  openTabIds: state =>
+    state.tabs.filter(({ isOpen }) => isOpen).map(({ id }) => id)
 };
 
 const actions = {

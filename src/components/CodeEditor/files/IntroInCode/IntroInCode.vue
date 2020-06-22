@@ -1,13 +1,9 @@
 <template>
-  <File
-    v-if="allTabs.find(({ id, isOpen }) => id === 1 && isOpen)"
-    :code="introInCode"
-    @click="selectTab"
-  />
+  <File :code="introInCode" @click="selectTab" />
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions } from "vuex";
 import File from "../File";
 import introInCode from "./intro-in-code.txt";
 
@@ -17,7 +13,6 @@ export default {
   data() {
     return { introInCode };
   },
-  computed: mapGetters("tabs", ["allTabs"]),
   methods: {
     ...mapActions({
       openTab: "tabs/openTab",
