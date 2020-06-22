@@ -8,19 +8,11 @@
 </template>
 
 <script>
-import "../../../code-theme.css";
+import "../../../../code-theme.css";
 
 export default {
   name: "CodeEditorFile",
   props: {
-    isFirst: {
-      type: Boolean,
-      default: false
-    },
-    id: {
-      type: Number,
-      required: true
-    },
     name: {
       type: String,
       default: "Untitled"
