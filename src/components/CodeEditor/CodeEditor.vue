@@ -13,7 +13,9 @@
 <script>
 import Head from "./Head";
 import TabGroup from "./TabGroup";
-import { IntroInCode, AboutMe, PlaySnake } from "./files";
+import IntroInCode from "./files/IntroInCode";
+import AboutMe from "./files/AboutMe";
+import PlaySnake from "./files/PlaySnake";
 
 export default {
   name: "CodeEditor",

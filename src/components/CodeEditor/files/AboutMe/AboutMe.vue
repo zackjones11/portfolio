@@ -85,7 +85,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import File from "./File";
+import File from "../File";
 
 export default {
   name: "AboutMe",

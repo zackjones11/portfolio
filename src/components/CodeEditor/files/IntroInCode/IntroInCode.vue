@@ -8,7 +8,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import File from "./File";
+import File from "../File";
 import introInCode from "./intro-in-code.txt";
 
 export default {

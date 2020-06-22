@@ -11,8 +11,8 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import File from "./File";
-import SnakeGame from "../../SnakeGame";
+import File from "../File";
+import SnakeGame from "../../../SnakeGame";
 
 export default {
   name: "PlaySnake",
