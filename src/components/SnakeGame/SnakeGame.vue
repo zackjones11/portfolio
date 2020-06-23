@@ -32,7 +32,8 @@ import {
   hasBitSelf,
   hasEatenFood,
   isOutside,
-  isGoingBackwards
+  isGoingBackwards,
+  createNewSnakeHead
 } from "./helpers";
 
 export default {
@@ -92,26 +93,10 @@ export default {
       }
     },
     move() {
-      const { Up, Down, Left, Right } = DIRECTIONS;
       const currentHead = this.snake[this.snake.length - 1];
-      const newHead = {
-        [Up]: {
-          row: currentHead.row - 1,
-          column: currentHead.column
-        },
-        [Down]: {
-          row: currentHead.row + 1,
-          column: currentHead.column
-        },
-        [Left]: {
-          row: currentHead.row,
-          column: currentHead.column - 1
-        },
-        [Right]: {
-          row: currentHead.row,
-          column: currentHead.column + 1
-        }
-      }[this.direction];
+      const newHead = createNewSnakeHead(currentHead, {
+        direction: this.direction
+      });
 
       if (
         isOutside(this.numOfCells, newHead) ||
