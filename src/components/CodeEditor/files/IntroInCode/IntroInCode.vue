@@ -1,9 +1,9 @@
 <template>
-  <File :code="introInCode" @click="selectTab" />
+  <File :code="introInCode" :id="TAB_IDS.IntroInCode" />
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { TAB_IDS } from "../../../../store/modules/tabs";
 import File from "../File";
 import introInCode from "./intro-in-code.txt";
 
@@ -11,13 +11,7 @@ export default {
   name: "IntroInCode",
   components: { File },
   data() {
-    return { introInCode };
-  },
-  methods: {
-    ...mapActions({
-      openTab: "tabs/openTab",
-      selectTab: "tabs/selectTab"
-    })
+    return { TAB_IDS, introInCode };
   }
 };
 </script>

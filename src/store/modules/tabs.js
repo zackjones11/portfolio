@@ -55,6 +55,7 @@ const actions = {
       ...tab,
       isSelected: tab.id === tabId
     }));
+
     commit(types.SET_TABS, newTabs);
   }
 };

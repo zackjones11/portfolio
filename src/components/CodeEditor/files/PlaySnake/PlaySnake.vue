@@ -1,5 +1,5 @@
 <template>
-  <File @click="selectTab">
+  <File :id="TAB_IDS.PlaySnake">
     <div :class="$style.playSnake__wrapper">
       <SnakeGame />
     </div>
@@ -7,18 +7,15 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { TAB_IDS } from "../../../../store/modules/tabs";
 import File from "../File";
 import SnakeGame from "../../../SnakeGame";
 
 export default {
   name: "PlaySnake",
   components: { File, SnakeGame },
-  methods: {
-    ...mapActions({
-      openTab: "tabs/openTab",
-      selectTab: "tabs/selectTab"
-    })
+  data() {
+    return { TAB_IDS };
   }
 };
 </script>

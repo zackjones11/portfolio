@@ -1,5 +1,5 @@
 <template>
-  <File @click="selectTab">
+  <File :id="TAB_IDS.AboutMe">
     <div :class="$style.aboutMe__block">
       <BaseHeadline :level="3">Professional Me</BaseHeadline>
       <p>
@@ -81,16 +81,20 @@
 </template>
 
 <script>
+import { TAB_IDS } from "../../../../store/modules/tabs";
 import { mapActions } from "vuex";
 import File from "../File";
 
 export default {
   name: "AboutMe",
   components: { File },
+  data() {
+    return { TAB_IDS };
+  },
   methods: {
     handlePlaySnake() {
-      this.openTab(3);
-      this.selectTab(3);
+      this.openTab(TAB_IDS.PlaySnake);
+      this.selectTab(TAB_IDS.PlaySnake);
     },
     ...mapActions({
       openTab: "tabs/openTab",
