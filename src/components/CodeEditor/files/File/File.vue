@@ -61,7 +61,7 @@ export default {
 .file__inner {
   overflow: auto;
   padding: 20px;
-  height: calc(100% - 50px);
+  height: calc(100% - 100px);
 }
 
 .file__inner::-webkit-scrollbar {

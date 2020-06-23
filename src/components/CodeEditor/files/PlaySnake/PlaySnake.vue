@@ -1,8 +1,6 @@
 <template>
   <File :id="TAB_IDS.PlaySnake">
-    <div :class="$style.playSnake__wrapper">
-      <SnakeGame />
-    </div>
+    <SnakeGame />
   </File>
 </template>
 
@@ -19,11 +17,3 @@ export default {
   }
 };
 </script>
-
-<style module>
-.playSnake__wrapper {
-  display: block;
-  height: 100%;
-  margin-bottom: 15px;
-}
-</style>
