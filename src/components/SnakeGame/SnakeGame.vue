@@ -74,21 +74,21 @@ export default {
     },
     onKeyPress(event) {
       const keyCode = event.keyCode;
-      if (this.isGameOver && keyCode === SPACE_BAR_CODE) {
-        event.preventDefault();
+      const isSpaceBar = keyCode === SPACE_BAR_CODE;
+
+      if (this.isGameOver && isSpaceBar) {
         this.startGame();
       }
 
-      if (Object.keys(KEY_BIND).includes(`${keyCode}`)) {
+      const isAllowedKey = Object.keys(KEY_BIND).includes(`${keyCode}`);
+      const isGoingForwards = !isGoingBackwards({
+        direction: this.direction,
+        keyCode
+      });
+
+      if (isAllowedKey && isGoingForwards) {
         event.preventDefault();
-        if (
-          !isGoingBackwards({
-            direction: this.direction,
-            keyCode
-          })
-        ) {
-          this.direction = KEY_BIND[keyCode];
-        }
+        this.direction = KEY_BIND[keyCode];
       }
     },
     move() {
