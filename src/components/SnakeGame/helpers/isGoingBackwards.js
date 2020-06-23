@@ -9,6 +9,10 @@ const isGoingBackwards = ({ direction, keyCode }) => {
     `${Right}:${Left}`
   ];
 
+  if (!Object.values(DIRECTIONS).includes(direction)) {
+    throw new Error("isGoingBackwards - Direction not supported");
+  }
+
   return oposites.includes(`${direction}:${KEY_BIND[keyCode]}`);
 };
 
