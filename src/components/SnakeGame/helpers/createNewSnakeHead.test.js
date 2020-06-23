@@ -50,7 +50,7 @@ describe("createNewSnakeHead.js", () => {
     ).toEqual(expected);
   });
 
-  it("should throw when an direction is not supported", () => {
+  it("should throw when a direction is not supported", () => {
     const currentHead = { row: 2, column: 5 };
     expect(() =>
       createNewSnakeHead(currentHead, { direction: "space" })
