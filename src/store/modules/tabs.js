@@ -25,6 +25,7 @@ const state = () => ({
     {
       id: TAB_IDS.PlaySnake,
       isSelected: false,
+      isOpen: false,
       isCloseable: true,
       title: "play-snake.html"
     }
