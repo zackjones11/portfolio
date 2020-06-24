@@ -7,7 +7,6 @@
       :title="tab.title"
       :isSelected="tab.isSelected"
       :isCloseable="tab.isCloseable"
-      @close="handleClose"
       @click="handleClick"
     />
   </div>
@@ -25,13 +24,12 @@ export default {
   computed: mapGetters("tabs", ["allTabs"]),
   methods: {
     ...mapActions({
-      handleClose: "tabs/closeTab",
       openTab: "tabs/openTab",
       selectTab: "tabs/selectTab"
     }),
     handleClick(tabId) {
-      this.selectTab(tabId);
       this.openTab(tabId);
+      this.selectTab(tabId);
     }
   }
 };
