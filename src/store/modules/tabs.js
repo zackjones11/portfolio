@@ -41,15 +41,19 @@ const getters = {
 };
 
 const actions = {
-  openTab: ({ commit, state, getters }, tabId) => {
-    if (getters.isCloseable(tabId)) {
-      const newTabs = state.tabs.map(tab => ({
-        ...tab,
-        ...(tab.isCloseable && { isOpen: tab.id === tabId })
-      }));
+  openTab: (context, tabId) => {
+    const { commit, state, getters } = context;
 
-      commit(types.SET_TABS, newTabs);
+    if (!getters.isCloseable(tabId)) {
+      return;
     }
+
+    const newTabs = state.tabs.map(tab => ({
+      ...tab,
+      isOpen: tab.isCloseable ? tab.id === tabId : true
+    }));
+
+    commit(types.SET_TABS, newTabs);
   },
   selectTab: ({ commit, state }, tabId) => {
     const newTabs = state.tabs.map(tab => ({
