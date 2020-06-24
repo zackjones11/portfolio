@@ -32,16 +32,29 @@ export default {
 <style module>
 .editor {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  max-width: 1400px;
+  margin: 0 auto;
   border-radius: 5px;
   background: var(--dark-300);
   border: 2px solid var(--dark-500);
 }
 
+@media (min-width: 1260px) {
+  .editor {
+    overflow: hidden;
+    height: 100%;
+  }
+}
+
 .editor__content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 100%;
+}
+
+@media (min-width: 1260px) {
+  .editor__content {
+    flex-direction: row;
+  }
 }
 </style>

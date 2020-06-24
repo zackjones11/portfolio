@@ -108,8 +108,14 @@ export default {
 .aboutMe__socialButtons {
   display: grid;
   grid-gap: 15px;
-  grid-auto-flow: column;
-  justify-content: flex-start;
+  grid-auto-flow: row;
+}
+
+@media (min-width: 600px) {
+  .aboutMe__socialButtons {
+    grid-auto-flow: column;
+    justify-content: flex-start;
+  }
 }
 
 .aboutMe__block {

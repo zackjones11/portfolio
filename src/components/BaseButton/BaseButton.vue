@@ -29,6 +29,7 @@ export default {
   justify-content: center;
   padding: 12px 25px;
   min-width: 150px;
+  width: 100%;
   font-weight: var(--weight-bold);
   text-transform: uppercase;
   letter-spacing: 1px;

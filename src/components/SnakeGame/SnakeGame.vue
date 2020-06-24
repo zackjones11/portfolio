@@ -127,10 +127,8 @@ export default {
 .board {
   display: grid;
   position: relative;
-  height: 100%;
-  width: 100%;
-  max-height: 400px;
-  max-width: 400px;
+  height: 400px;
+  width: 400px;
   border: 4px solid var(--brown-200);
   background-color: var(--brown-100);
 }
