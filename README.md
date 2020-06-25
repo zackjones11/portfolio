@@ -1,6 +1,6 @@
 # My Portfolio
 
-## Development setup
+### Development setup
 ```
 npm install
 ```
