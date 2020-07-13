@@ -13,7 +13,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import "../../../../code-theme.css";
+import "@/code-theme.css";
 
 export default {
   name: "CodeEditorFile",

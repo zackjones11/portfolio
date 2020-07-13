@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { TAB_IDS } from "../../../../store/modules/tabs";
+import { TAB_IDS } from "@/store/modules/tabs";
 import File from "../File";
 import introInCode from "./intro-in-code.txt";
 

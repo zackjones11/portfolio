@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import { TAB_IDS } from "../../../../store/modules/tabs";
+import { TAB_IDS } from "@/store/modules/tabs";
+import SnakeGame from "@/components/SnakeGame";
 import File from "../File";
-import SnakeGame from "../../../SnakeGame";
 
 export default {
   name: "PlaySnake",

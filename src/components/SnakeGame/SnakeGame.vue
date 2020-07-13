@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { randomNumber } from "../../utils";
+import { randomNumber } from "@/utils";
 import { DIRECTIONS, KEY_BIND, SPACE_BAR_CODE } from "./constants";
 import {
   hasBitSelf,

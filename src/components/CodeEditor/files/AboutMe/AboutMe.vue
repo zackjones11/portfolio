@@ -76,8 +76,8 @@
 </template>
 
 <script>
-import { CV_URL } from "../../../../constants";
-import { TAB_IDS } from "../../../../store/modules/tabs";
+import { CV_URL } from "@/constants";
+import { TAB_IDS } from "@/store/modules/tabs";
 import { mapActions } from "vuex";
 import File from "../File";
 
