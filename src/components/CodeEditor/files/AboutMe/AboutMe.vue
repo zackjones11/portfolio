@@ -24,12 +24,7 @@
         <BaseLink href="https://aboutyou.de" target="_blank"
           >ABOUT YOU GmbH <BaseIcon name="unicorn"/></BaseLink
         >. Want to know more?
-        <BaseLink
-          download
-          downloadName="Zack_Jones_CV"
-          href="/Zack_Jones_CV.pdf"
-          >Download my CV</BaseLink
-        >.
+        <BaseLink target="_blank" :href="CV_URL">View my CV</BaseLink>.
       </p>
     </div>
 
@@ -81,6 +76,7 @@
 </template>
 
 <script>
+import { CV_URL } from "../../../../constants";
 import { TAB_IDS } from "../../../../store/modules/tabs";
 import { mapActions } from "vuex";
 import File from "../File";
@@ -89,7 +85,7 @@ export default {
   name: "AboutMe",
   components: { File },
   data() {
-    return { TAB_IDS };
+    return { CV_URL, TAB_IDS };
   },
   methods: {
     handlePlaySnake() {
