@@ -3,7 +3,7 @@ import * as types from "../mutation-types";
 export const TAB_IDS = Object.freeze({
   IntroInCode: 1,
   AboutMe: 2,
-  PlaySnake: 3
+  PlaySnake: 3,
 });
 
 const state = () => ({
@@ -13,31 +13,31 @@ const state = () => ({
       isSelected: true,
       isOpen: true,
       isCloseable: false,
-      title: "index.html"
+      title: "index.html",
     },
     {
       id: TAB_IDS.AboutMe,
       isSelected: false,
       isOpen: true,
       isCloseable: true,
-      title: "about-me.html"
+      title: "about-me.html",
     },
     {
       id: TAB_IDS.PlaySnake,
       isSelected: false,
       isOpen: false,
       isCloseable: true,
-      title: "play-snake.html"
-    }
-  ]
+      title: "play-snake.html",
+    },
+  ],
 });
 
 const getters = {
-  isCloseable: state => tabId =>
-    state.tabs.some(tab => tab.id === tabId && tab.isCloseable),
-  allTabs: state => state.tabs,
-  openTabIds: state =>
-    state.tabs.filter(({ isOpen }) => isOpen).map(({ id }) => id)
+  isCloseable: (state) => (tabId) =>
+    state.tabs.some((tab) => tab.id === tabId && tab.isCloseable),
+  allTabs: (state) => state.tabs,
+  openTabIds: (state) =>
+    state.tabs.filter(({ isOpen }) => isOpen).map(({ id }) => id),
 };
 
 const actions = {
@@ -48,25 +48,25 @@ const actions = {
       return;
     }
 
-    const newTabs = state.tabs.map(tab => ({
+    const newTabs = state.tabs.map((tab) => ({
       ...tab,
-      isOpen: tab.isCloseable ? tab.id === tabId : true
+      isOpen: tab.isCloseable ? tab.id === tabId : true,
     }));
 
     commit(types.SET_TABS, newTabs);
   },
   selectTab: ({ commit, state }, tabId) => {
-    const newTabs = state.tabs.map(tab => ({
+    const newTabs = state.tabs.map((tab) => ({
       ...tab,
-      isSelected: tab.id === tabId
+      isSelected: tab.id === tabId,
     }));
 
     commit(types.SET_TABS, newTabs);
-  }
+  },
 };
 
 const mutations = {
-  [types.SET_TABS]: (state, newTabs) => (state.tabs = newTabs)
+  [types.SET_TABS]: (state, newTabs) => (state.tabs = newTabs),
 };
 
 export default {
@@ -74,5 +74,5 @@ export default {
   state,
   getters,
   actions,
-  mutations
+  mutations,
 };

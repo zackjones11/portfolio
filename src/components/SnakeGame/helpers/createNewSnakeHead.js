@@ -10,20 +10,20 @@ const createNewSnakeHead = (currentHead, { direction }) => {
   return {
     [Up]: {
       row: currentHead.row - 1,
-      column: currentHead.column
+      column: currentHead.column,
     },
     [Down]: {
       row: currentHead.row + 1,
-      column: currentHead.column
+      column: currentHead.column,
     },
     [Left]: {
       row: currentHead.row,
-      column: currentHead.column - 1
+      column: currentHead.column - 1,
     },
     [Right]: {
       row: currentHead.row,
-      column: currentHead.column + 1
-    }
+      column: currentHead.column + 1,
+    },
   }[direction];
 };
 

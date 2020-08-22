@@ -14,8 +14,8 @@ import HeadButton from "../HeadButton";
 export default {
   name: "CodeEditorHead",
   components: {
-    HeadButton
-  }
+    HeadButton,
+  },
 };
 </script>
 

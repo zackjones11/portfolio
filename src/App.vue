@@ -10,11 +10,11 @@ import CodeEditor from "./components/CodeEditor";
 export default {
   name: "App",
   components: {
-    CodeEditor
+    CodeEditor,
   },
   data() {
     return {};
-  }
+  },
 };
 </script>
 

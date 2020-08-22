@@ -14,6 +14,6 @@ export default {
   components: { File, SnakeGame },
   data() {
     return { TAB_IDS };
-  }
+  },
 };
 </script>

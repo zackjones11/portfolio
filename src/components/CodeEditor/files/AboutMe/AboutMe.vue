@@ -22,7 +22,7 @@
         >
         and
         <BaseLink href="https://aboutyou.de" target="_blank"
-          >ABOUT YOU GmbH <BaseIcon name="unicorn"/></BaseLink
+          >ABOUT YOU GmbH <BaseIcon name="unicorn" /></BaseLink
         >. Want to know more?
         <BaseLink target="_blank" :href="CV_URL">View my CV</BaseLink>.
       </p>
@@ -94,9 +94,9 @@ export default {
     },
     ...mapActions({
       openTab: "tabs/openTab",
-      selectTab: "tabs/selectTab"
-    })
-  }
+      selectTab: "tabs/selectTab",
+    }),
+  },
 };
 </script>
 

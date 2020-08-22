@@ -6,7 +6,7 @@ describe("createNewSnakeHead.js", () => {
     const currentHead = { row: 2, column: 5 };
     const expected = {
       row: currentHead.row - 1,
-      column: currentHead.column
+      column: currentHead.column,
     };
 
     expect(
@@ -18,7 +18,7 @@ describe("createNewSnakeHead.js", () => {
     const currentHead = { row: 2, column: 5 };
     const expected = {
       row: currentHead.row + 1,
-      column: currentHead.column
+      column: currentHead.column,
     };
 
     expect(
@@ -30,7 +30,7 @@ describe("createNewSnakeHead.js", () => {
     const currentHead = { row: 2, column: 5 };
     const expected = {
       row: currentHead.row,
-      column: currentHead.column - 1
+      column: currentHead.column - 1,
     };
 
     expect(
@@ -42,7 +42,7 @@ describe("createNewSnakeHead.js", () => {
     const currentHead = { row: 2, column: 5 };
     const expected = {
       row: currentHead.row,
-      column: currentHead.column + 1
+      column: currentHead.column + 1,
     };
 
     expect(

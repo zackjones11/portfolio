@@ -6,7 +6,7 @@ const isGoingBackwards = ({ direction, keyCode }) => {
     `${Up}:${Down}`,
     `${Down}:${Up}`,
     `${Left}:${Right}`,
-    `${Right}:${Left}`
+    `${Right}:${Left}`,
   ];
 
   if (!Object.values(DIRECTIONS).includes(direction)) {

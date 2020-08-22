@@ -16,8 +16,8 @@ describe("BaseButton.vue", () => {
   it("should display slot as text", () => {
     const wrapper = shallowMount(BaseButton, {
       slots: {
-        default: "Click Me"
-      }
+        default: "Click Me",
+      },
     });
 
     expect(wrapper.text()).toBe("Click Me");

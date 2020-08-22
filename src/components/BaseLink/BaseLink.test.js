@@ -5,8 +5,8 @@ describe("BaseLink.vue", () => {
   it("should include href", () => {
     const wrapper = shallowMount(BaseLink, {
       propsData: {
-        href: "https://www.google.com"
-      }
+        href: "https://www.google.com",
+      },
     });
 
     expect(wrapper.find("a").attributes("href")).toBe("https://www.google.com");
@@ -17,8 +17,8 @@ describe("BaseLink.vue", () => {
       propsData: {
         href: "./placeholder.pdf",
         download: true,
-        downloadName: "Placeholder"
-      }
+        downloadName: "Placeholder",
+      },
     });
 
     expect(wrapper.find("a").attributes("download")).toBe("Placeholder");

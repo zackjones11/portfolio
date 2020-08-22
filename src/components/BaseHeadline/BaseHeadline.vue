@@ -11,9 +11,9 @@ export default {
     level: {
       type: Number,
       required: true,
-      validator: prop => prop <= 6
-    }
-  }
+      validator: (prop) => prop <= 6,
+    },
+  },
 };
 </script>
 

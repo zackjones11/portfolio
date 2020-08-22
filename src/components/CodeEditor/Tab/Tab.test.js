@@ -5,8 +5,8 @@ describe("CodeEditor/Tab.vue", () => {
   it("should show Untitled if no title passed", () => {
     const wrapper = shallowMount(Tab, {
       propsData: {
-        id: 1
-      }
+        id: 1,
+      },
     });
 
     expect(wrapper.find("[data-test-id='tabTitle']").text()).toBe("Untitled");
@@ -16,8 +16,8 @@ describe("CodeEditor/Tab.vue", () => {
     const wrapper = shallowMount(Tab, {
       propsData: {
         id: 1,
-        title: "About Me"
-      }
+        title: "About Me",
+      },
     });
 
     expect(wrapper.find("[data-test-id='tabTitle']").text()).toBe("About Me");

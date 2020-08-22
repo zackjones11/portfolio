@@ -1,5 +1,5 @@
 module.exports = {
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.module
       .rule("txt")
       .test(/\.txt$/)
@@ -14,9 +14,9 @@ module.exports = {
       rules: [
         {
           test: /\.svg$/,
-          loader: "vue-svg-loader"
-        }
-      ]
-    }
-  }
+          loader: "vue-svg-loader",
+        },
+      ],
+    },
+  },
 };

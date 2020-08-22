@@ -20,23 +20,23 @@ export default {
   props: {
     id: {
       type: Number,
-      required: true
+      required: true,
     },
     name: {
       type: String,
-      default: "Untitled"
+      default: "Untitled",
     },
     code: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: mapGetters("tabs", ["openTabIds"]),
   methods: {
     ...mapActions({
-      selectTab: "tabs/selectTab"
-    })
-  }
+      selectTab: "tabs/selectTab",
+    }),
+  },
 };
 </script>
 

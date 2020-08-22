@@ -5,7 +5,7 @@ describe("BaseIcon.vue", () => {
   it("should render SVG", () => {
     const wrapper = shallowMount(BaseIcon, {
       propsData: {
-        name: "mock-svg"
+        name: "mock-svg",
       },
       computed: {
         icon() {
@@ -14,8 +14,8 @@ describe("BaseIcon.vue", () => {
               <path />
             </svg>
           );
-        }
-      }
+        },
+      },
     });
     expect(wrapper.find("#mock-svg").exists()).toBe(true);
   });

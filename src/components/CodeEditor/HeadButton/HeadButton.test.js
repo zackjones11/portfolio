@@ -5,7 +5,7 @@ describe("CodeEditor/HeadButton.vue", () => {
   it("should add correct class for colour", () => {
     const color = "green";
     const wrapper = shallowMount(HeadButton, {
-      propsData: { color }
+      propsData: { color },
     });
     expect(wrapper.find(`.button--${color}`).exists()).toBeTruthy();
   });

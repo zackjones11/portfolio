@@ -9,8 +9,8 @@ import "./main.css";
 Vue.use(VuePrism);
 Vue.config.productionTip = false;
 
-const registerGlobalComponents = components => {
-  components.keys().forEach(key => {
+const registerGlobalComponents = (components) => {
+  components.keys().forEach((key) => {
     const name = key.match(/([a-z0-9]+)\./i)[1];
     Vue.component(name, components(key).default);
   });
@@ -24,6 +24,6 @@ const components = require.context(
 registerGlobalComponents(components);
 
 new Vue({
-  render: h => h(App),
-  store
+  render: (h) => h(App),
+  store,
 }).$mount("#app");

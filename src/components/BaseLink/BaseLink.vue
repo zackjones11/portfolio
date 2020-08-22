@@ -16,26 +16,26 @@ export default {
   props: {
     href: {
       type: String,
-      required: true
+      required: true,
     },
     target: {
       type: String,
-      validator: prop =>
-        ["_blank", "_self", "_parent", "_top", "framename"].includes(prop)
+      validator: (prop) =>
+        ["_blank", "_self", "_parent", "_top", "framename"].includes(prop),
     },
     rel: {
       type: String,
-      default: "noopener"
+      default: "noopener",
     },
     download: {
       type: Boolean,
-      default: false
+      default: false,
     },
     downloadName: {
       type: String,
-      default: "download"
-    }
-  }
+      default: "download",
+    },
+  },
 };
 </script>
 

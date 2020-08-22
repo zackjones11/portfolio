@@ -20,20 +20,20 @@ export default {
   props: {
     name: {
       type: String,
-      required: true
+      required: true,
     },
     width: {
       type: Number,
-      default: 18
+      default: 18,
     },
     height: {
       type: Number,
-      default: 18
+      default: 18,
     },
     color: {
       type: String,
-      default: "currentColor"
-    }
+      default: "currentColor",
+    },
   },
   computed: {
     icon() {
@@ -43,7 +43,7 @@ export default {
           /* webpackMode: "lazy-once" */
           `../../icons/${this.name}.svg`
         );
-    }
-  }
+    },
+  },
 };
 </script>

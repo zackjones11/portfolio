@@ -2,7 +2,7 @@
   <div
     :class="$style.board"
     :style="{
-      gridTemplate: `repeat(${numOfCells}, 1fr) / repeat(${numOfCells}, 1fr)`
+      gridTemplate: `repeat(${numOfCells}, 1fr) / repeat(${numOfCells}, 1fr)`,
     }"
   >
     <div
@@ -33,7 +33,7 @@ import {
   hasEatenFood,
   isOutside,
   isGoingBackwards,
-  createNewSnakeHead
+  createNewSnakeHead,
 } from "./helpers";
 
 export default {
@@ -43,14 +43,14 @@ export default {
       isGameOver: false,
       snake: [{ row: 4, column: 5 }],
       food: { row: 7, column: 10 },
-      direction: DIRECTIONS.Right
+      direction: DIRECTIONS.Right,
     };
   },
   props: {
     numOfCells: {
       type: Number,
-      default: 30
-    }
+      default: 30,
+    },
   },
   created() {
     this.startGame();
@@ -84,7 +84,7 @@ export default {
       const isAllowedKey = Object.keys(KEY_BIND).includes(`${keyCode}`);
       const isGoingForwards = !isGoingBackwards({
         direction: this.direction,
-        keyCode
+        keyCode,
       });
 
       if (isAllowedKey && isGoingForwards) {
@@ -95,7 +95,7 @@ export default {
     move() {
       const currentHead = this.snake[this.snake.length - 1];
       const newHead = createNewSnakeHead(currentHead, {
-        direction: this.direction
+        direction: this.direction,
       });
 
       if (
@@ -116,10 +116,10 @@ export default {
     addFood() {
       this.food = {
         row: randomNumber({ min: 1, max: this.numOfCells }),
-        column: randomNumber({ min: 1, max: this.numOfCells })
+        column: randomNumber({ min: 1, max: this.numOfCells }),
       };
-    }
-  }
+    },
+  },
 };
 </script>
 

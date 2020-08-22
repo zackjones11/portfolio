@@ -14,16 +14,16 @@ describe("CodeEditor/TabGroup.vue", () => {
     const tabs = {
       namespaced: true,
       actions: {
-        closeTab: jest.fn()
+        closeTab: jest.fn(),
       },
       getters: {
-        allTabs: () => [{ id: 1 }, { id: 2 }]
-      }
+        allTabs: () => [{ id: 1 }, { id: 2 }],
+      },
     };
     store = new Vuex.Store({
       modules: {
-        tabs
-      }
+        tabs,
+      },
     });
   });
 

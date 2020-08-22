@@ -19,19 +19,19 @@ import Tab from "../Tab";
 export default {
   name: "CodeEditor",
   components: {
-    Tab
+    Tab,
   },
   computed: mapGetters("tabs", ["allTabs"]),
   methods: {
     ...mapActions({
       openTab: "tabs/openTab",
-      selectTab: "tabs/selectTab"
+      selectTab: "tabs/selectTab",
     }),
     handleClick(tabId) {
       this.openTab(tabId);
       this.selectTab(tabId);
-    }
-  }
+    },
+  },
 };
 </script>
 

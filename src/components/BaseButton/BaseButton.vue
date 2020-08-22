@@ -10,15 +10,15 @@ export default {
   props: {
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     onClick(event) {
       event.stopPropagation();
       this.$emit("click", event);
-    }
-  }
+    },
+  },
 };
 </script>
 

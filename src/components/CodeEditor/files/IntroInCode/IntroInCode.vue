@@ -12,6 +12,6 @@ export default {
   components: { File },
   data() {
     return { TAB_IDS, introInCode };
-  }
+  },
 };
 </script>

@@ -13,16 +13,16 @@ describe("CodeEditor/File.vue", () => {
     const tabs = {
       namespaced: true,
       actions: {
-        selectTab: jest.fn()
+        selectTab: jest.fn(),
       },
       getters: {
-        openTabIds: () => [1, 2]
-      }
+        openTabIds: () => [1, 2],
+      },
     };
     store = new Vuex.Store({
       modules: {
-        tabs
-      }
+        tabs,
+      },
     });
   });
 
@@ -30,10 +30,10 @@ describe("CodeEditor/File.vue", () => {
     const wrapper = shallowMount(File, {
       propsData: {
         id: 1,
-        code: "<p>test</p>"
+        code: "<p>test</p>",
       },
       store,
-      localVue
+      localVue,
     });
 
     expect(wrapper.find("code").exists()).toBeTruthy();
@@ -42,13 +42,13 @@ describe("CodeEditor/File.vue", () => {
   it("should display slot if defined", () => {
     const wrapper = shallowMount(File, {
       propsData: {
-        id: 2
+        id: 2,
       },
       slots: {
-        default: "Lorem lorem lorem lorem"
+        default: "Lorem lorem lorem lorem",
       },
       store,
-      localVue
+      localVue,
     });
 
     expect(wrapper.text()).toBe("Lorem lorem lorem lorem");

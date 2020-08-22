@@ -13,22 +13,22 @@ export default {
   props: {
     id: {
       type: Number,
-      required: true
+      required: true,
     },
     title: {
       type: String,
-      default: "Untitled"
+      default: "Untitled",
     },
     isSelected: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     onClick() {
       this.$emit("click", this.id);
-    }
-  }
+    },
+  },
 };
 </script>
 

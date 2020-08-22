@@ -9,9 +9,9 @@ export default {
     color: {
       type: String,
       required: true,
-      validator: prop => ["green", "yellow", "red"].includes(prop)
-    }
-  }
+      validator: (prop) => ["green", "yellow", "red"].includes(prop),
+    },
+  },
 };
 </script>
 
