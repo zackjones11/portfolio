@@ -3,9 +3,9 @@
     <div :class="$style.aboutMe__block">
       <BaseHeadline :level="3">Professional Me</BaseHeadline>
       <p>
-        I am a developer with over 6 years' experience mostly working with
-        frontend technologies on a variety of exciting projects. I have worked
-        with agencies such as
+        I am a developer with over {{ yearsOfExperience }} years' experience
+        mostly working with frontend technologies on a variety of exciting
+        projects. I have worked with agencies such as
         <BaseLink href="https://6rs.co.uk" target="_blank"
           >sixredsquares</BaseLink
         >
@@ -80,12 +80,19 @@ import { CV_URL } from "@/constants";
 import { TAB_IDS } from "@/store/modules/tabs";
 import { mapActions } from "vuex";
 import File from "../File";
+import { yearsDifference } from "@/utils";
 
 export default {
   name: "AboutMe",
   components: { File },
   data() {
     return { CV_URL, TAB_IDS };
+  },
+  computed: {
+    yearsOfExperience() {
+      const firstDay = "September 1, 2013";
+      return yearsDifference({ start: firstDay });
+    },
   },
   methods: {
     handlePlaySnake() {
