@@ -28,12 +28,13 @@
     ];
 
     const libraries = [
-      'Webpack',
-      'Styled Components',
       'Redux / MobX',
+      'Styled Components',
       'Cypress',
       'Jest',
-      'Enzyme / React Testing Library'
+      'React Testing Library / Enzyme',
+      'Jenkins',
+      'Webpack',
     ];
 
     const candidateSkills = [...languages, ...frameworks, ...libraries];
