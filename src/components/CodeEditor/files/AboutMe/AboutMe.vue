@@ -57,7 +57,7 @@
         </BaseLink>
 
         <BaseLink
-          href="https://www.linkedin.com/in/zack-jones-6b76802b/"
+          href="https://www.linkedin.com/in/zack-jones-dev/"
           target="_blank"
         >
           <BaseButton>
