@@ -5,12 +5,31 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import CodeEditor from "./components/CodeEditor";
 
 export default {
   name: "App",
   components: {
     CodeEditor,
+  },
+  created() {
+    this.switchTab(this.$route.meta.id);
+  },
+  methods: {
+    ...mapActions({
+      selectTab: "tabs/selectTab",
+      openTab: "tabs/openTab",
+    }),
+    switchTab(id) {
+      this.selectTab(id);
+      this.openTab(id);
+    },
+  },
+  watch: {
+    $route(to) {
+      this.switchTab(to.meta.id);
+    },
   },
   data() {
     return {};

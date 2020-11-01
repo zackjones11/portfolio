@@ -17,7 +17,10 @@ describe("CodeEditor/TabGroup.vue", () => {
         closeTab: jest.fn(),
       },
       getters: {
-        allTabs: () => [{ id: 1 }, { id: 2 }],
+        allTabs: () => [
+          { id: 1, path: "test" },
+          { id: 2, path: "test2" },
+        ],
       },
     };
     store = new Vuex.Store({

@@ -66,10 +66,12 @@
           </BaseButton>
         </BaseLink>
 
-        <BaseButton @click="handlePlaySnake">
-          <BaseIcon name="square" :width="6" :height="6" />
-          Play Snake
-        </BaseButton>
+        <router-link :to="TAB_PATHS.PlaySnake">
+          <BaseButton>
+            <BaseIcon name="square" :width="6" :height="6" />
+            Play Snake
+          </BaseButton>
+        </router-link>
       </div>
     </div>
   </File>
@@ -77,8 +79,7 @@
 
 <script>
 import { CV_URL } from "@/constants";
-import { TAB_IDS } from "@/store/modules/tabs";
-import { mapActions } from "vuex";
+import { TAB_IDS, TAB_PATHS } from "@/store/modules/tabs";
 import File from "../File";
 import { yearsDifference } from "@/utils";
 
@@ -86,23 +87,13 @@ export default {
   name: "AboutMe",
   components: { File },
   data() {
-    return { CV_URL, TAB_IDS };
+    return { CV_URL, TAB_IDS, TAB_PATHS };
   },
   computed: {
     yearsOfExperience() {
       const firstDay = "September 1, 2013";
       return yearsDifference({ start: firstDay });
     },
-  },
-  methods: {
-    handlePlaySnake() {
-      this.openTab(TAB_IDS.PlaySnake);
-      this.selectTab(TAB_IDS.PlaySnake);
-    },
-    ...mapActions({
-      openTab: "tabs/openTab",
-      selectTab: "tabs/selectTab",
-    }),
   },
 };
 </script>

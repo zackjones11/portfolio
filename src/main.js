@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import VuePrism from "vue-prism";
 import store from "./store";
+import router from "./router";
 
 import "./variables.css";
 import "./main.css";
@@ -26,4 +27,6 @@ registerGlobalComponents(components);
 new Vue({
   render: (h) => h(App),
   store,
+  router,
+  components: { App },
 }).$mount("#app");

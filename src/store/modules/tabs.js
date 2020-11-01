@@ -6,10 +6,17 @@ export const TAB_IDS = Object.freeze({
   PlaySnake: 3,
 });
 
+export const TAB_PATHS = Object.freeze({
+  IntroInCode: "/",
+  AboutMe: "/about-me",
+  PlaySnake: "/snake",
+});
+
 const state = () => ({
   tabs: [
     {
       id: TAB_IDS.IntroInCode,
+      path: TAB_PATHS.IntroInCode,
       isSelected: true,
       isOpen: true,
       isCloseable: false,
@@ -17,6 +24,7 @@ const state = () => ({
     },
     {
       id: TAB_IDS.AboutMe,
+      path: TAB_PATHS.AboutMe,
       isSelected: false,
       isOpen: true,
       isCloseable: true,
@@ -24,6 +32,7 @@ const state = () => ({
     },
     {
       id: TAB_IDS.PlaySnake,
+      path: TAB_PATHS.PlaySnake,
       isSelected: false,
       isOpen: false,
       isCloseable: true,

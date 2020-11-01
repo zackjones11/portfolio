@@ -3,7 +3,9 @@
     :class="[$style.tab, { [$style['tab--selected']]: isSelected }]"
     @click="onClick"
   >
-    <span data-test-id="tabTitle">{{ title }}</span>
+    <router-link :to="path" :class="$style.tab__text" data-test-id="tabTitle">
+      {{ title }}
+    </router-link>
   </div>
 </template>
 
@@ -13,6 +15,10 @@ export default {
   props: {
     id: {
       type: Number,
+      required: true,
+    },
+    path: {
+      type: String,
       required: true,
     },
     title: {
@@ -42,7 +48,6 @@ export default {
   width: 270px;
   font-size: 13px;
   background: var(--dark-300);
-  color: var(--light-500);
   letter-spacing: 1px;
   opacity: 0.5;
   user-select: none;
@@ -64,5 +69,14 @@ export default {
 
 .tab__close:hover {
   opacity: 1;
+}
+
+.tab__text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-500);
+  width: 100%;
+  height: 100%;
 }
 </style>

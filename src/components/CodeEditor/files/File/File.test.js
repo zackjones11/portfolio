@@ -12,9 +12,6 @@ describe("CodeEditor/File.vue", () => {
   beforeEach(() => {
     const tabs = {
       namespaced: true,
-      actions: {
-        selectTab: jest.fn(),
-      },
       getters: {
         openTabIds: () => [1, 2],
       },

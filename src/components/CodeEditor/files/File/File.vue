@@ -1,9 +1,5 @@
 <template>
-  <div
-    :class="$style.file"
-    v-if="openTabIds.includes(id)"
-    @click="selectTab(id)"
-  >
+  <div :class="$style.file" v-if="openTabIds.includes(id)">
     <div :class="$style.file__inner">
       <code v-if="code" class="language-markup">{{ code }}</code>
       <slot></slot>
@@ -12,7 +8,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 import "@/code-theme.css";
 
 export default {
@@ -32,11 +28,6 @@ export default {
     },
   },
   computed: mapGetters("tabs", ["openTabIds"]),
-  methods: {
-    ...mapActions({
-      selectTab: "tabs/selectTab",
-    }),
-  },
 };
 </script>
 

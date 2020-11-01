@@ -23,3 +23,8 @@ body {
 *, :after, :before {
   box-sizing: inherit;
 }
+
+a {
+  color: var(--light-300);
+  text-decoration: none;
+}
