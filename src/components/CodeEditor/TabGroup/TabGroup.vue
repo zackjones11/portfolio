@@ -6,7 +6,6 @@
       :id="tab.id"
       :path="tab.path"
       :title="tab.title"
-      :isSelected="tab.isSelected"
       :isCloseable="tab.isCloseable"
     />
   </div>

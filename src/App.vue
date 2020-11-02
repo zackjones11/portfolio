@@ -14,21 +14,16 @@ export default {
     CodeEditor,
   },
   created() {
-    this.switchTab(this.$route.meta.id);
+    this.openTab(this.$route.meta.id);
   },
   methods: {
     ...mapActions({
-      selectTab: "tabs/selectTab",
       openTab: "tabs/openTab",
     }),
-    switchTab(id) {
-      this.selectTab(id);
-      this.openTab(id);
-    },
   },
   watch: {
     $route(to) {
-      this.switchTab(to.meta.id);
+      this.openTab(to.meta.id);
     },
   },
   data() {

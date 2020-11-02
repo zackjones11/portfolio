@@ -25,9 +25,10 @@ export default {
       type: String,
       default: "Untitled",
     },
-    isSelected: {
-      type: Boolean,
-      default: false,
+  },
+  computed: {
+    isSelected() {
+      return this.$route.path === this.path;
     },
   },
   methods: {

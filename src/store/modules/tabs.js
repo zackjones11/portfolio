@@ -17,7 +17,6 @@ const state = () => ({
     {
       id: TAB_IDS.IntroInCode,
       path: TAB_PATHS.IntroInCode,
-      isSelected: true,
       isOpen: true,
       isCloseable: false,
       title: "index.html",
@@ -25,7 +24,6 @@ const state = () => ({
     {
       id: TAB_IDS.AboutMe,
       path: TAB_PATHS.AboutMe,
-      isSelected: false,
       isOpen: true,
       isCloseable: true,
       title: "about-me.html",
@@ -33,7 +31,6 @@ const state = () => ({
     {
       id: TAB_IDS.PlaySnake,
       path: TAB_PATHS.PlaySnake,
-      isSelected: false,
       isOpen: false,
       isCloseable: true,
       title: "play-snake.html",
@@ -60,14 +57,6 @@ const actions = {
     const newTabs = state.tabs.map((tab) => ({
       ...tab,
       isOpen: tab.isCloseable ? tab.id === tabId : true,
-    }));
-
-    commit(types.SET_TABS, newTabs);
-  },
-  selectTab: ({ commit, state }, tabId) => {
-    const newTabs = state.tabs.map((tab) => ({
-      ...tab,
-      isSelected: tab.id === tabId,
     }));
 
     commit(types.SET_TABS, newTabs);

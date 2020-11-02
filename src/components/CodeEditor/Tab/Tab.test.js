@@ -1,10 +1,17 @@
 import { shallowMount } from "@vue/test-utils";
 import Tab from "./Tab.vue";
 
+const $route = {
+  fullPath: "/",
+};
+
 describe("CodeEditor/Tab.vue", () => {
   it("should show Untitled if no title passed", () => {
     const wrapper = shallowMount(Tab, {
       stubs: ["router-link", "router-view"],
+      mocks: {
+        $route,
+      },
       propsData: {
         id: 1,
         path: "test",
@@ -17,6 +24,9 @@ describe("CodeEditor/Tab.vue", () => {
   it("should show defiend title if passed", () => {
     const wrapper = shallowMount(Tab, {
       stubs: ["router-link", "router-view"],
+      mocks: {
+        $route,
+      },
       propsData: {
         id: 1,
         path: "test2",
