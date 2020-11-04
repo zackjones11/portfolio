@@ -12,30 +12,56 @@ export const TAB_PATHS = Object.freeze({
   PlaySnake: "/snake",
 });
 
+const desktopTabs = [
+  {
+    id: TAB_IDS.IntroInCode,
+    path: TAB_PATHS.IntroInCode,
+    isOpen: true,
+    isCloseable: false,
+    title: "index.html",
+  },
+  {
+    id: TAB_IDS.AboutMe,
+    path: TAB_PATHS.AboutMe,
+    isOpen: true,
+    isCloseable: true,
+    title: "about-me.html",
+  },
+  {
+    id: TAB_IDS.PlaySnake,
+    path: TAB_PATHS.PlaySnake,
+    isOpen: false,
+    isCloseable: true,
+    title: "play-snake.html",
+  },
+];
+
+const mobileTabs = [
+  {
+    id: TAB_IDS.IntroInCode,
+    path: TAB_PATHS.IntroInCode,
+    isOpen: true,
+    isCloseable: true,
+    title: "index.html",
+  },
+  {
+    id: TAB_IDS.AboutMe,
+    path: TAB_PATHS.AboutMe,
+    isOpen: false,
+    isCloseable: true,
+    title: "about-me.html",
+  },
+  {
+    id: TAB_IDS.PlaySnake,
+    path: TAB_PATHS.PlaySnake,
+    isOpen: false,
+    isCloseable: true,
+    title: "play-snake.html",
+  },
+];
+
 const state = () => ({
-  tabs: [
-    {
-      id: TAB_IDS.IntroInCode,
-      path: TAB_PATHS.IntroInCode,
-      isOpen: true,
-      isCloseable: false,
-      title: "index.html",
-    },
-    {
-      id: TAB_IDS.AboutMe,
-      path: TAB_PATHS.AboutMe,
-      isOpen: true,
-      isCloseable: true,
-      title: "about-me.html",
-    },
-    {
-      id: TAB_IDS.PlaySnake,
-      path: TAB_PATHS.PlaySnake,
-      isOpen: false,
-      isCloseable: true,
-      title: "play-snake.html",
-    },
-  ],
+  tabs: desktopTabs,
 });
 
 const getters = {
@@ -60,6 +86,12 @@ const actions = {
     }));
 
     commit(types.SET_TABS, newTabs);
+  },
+  mobileView: ({ commit }) => {
+    commit(types.SET_TABS, mobileTabs);
+  },
+  desktopView: ({ commit }) => {
+    commit(types.SET_TABS, desktopTabs);
   },
 };
 

@@ -105,7 +105,7 @@ export default {
   grid-auto-flow: row;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 1285px) {
   .aboutMe__socialButtons {
     grid-auto-flow: column;
     justify-content: flex-start;

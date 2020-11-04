@@ -39,7 +39,7 @@ export default {
   border: 2px solid var(--dark-500);
 }
 
-@media (min-width: 1260px) {
+@media (min-width: 950px) {
   .editor {
     overflow: hidden;
     height: 100%;
@@ -52,7 +52,7 @@ export default {
   height: 100%;
 }
 
-@media (min-width: 1260px) {
+@media (min-width: 950px) {
   .editor__content {
     flex-direction: row;
   }
