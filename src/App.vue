@@ -18,6 +18,7 @@ export default {
   created() {
     this.openTab(this.$route.meta.id);
 
+    this.handleWindowResize();
     window.addEventListener("resize", this.handleWindowResize);
   },
   methods: {
