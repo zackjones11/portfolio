@@ -47,12 +47,18 @@ export default {
   align-items: center;
   height: 35px;
   width: 270px;
-  font-size: 13px;
+  font-size: 11px;
   background: var(--dark-300);
   letter-spacing: 1px;
   opacity: 0.5;
   user-select: none;
   cursor: pointer;
+}
+
+@media (min-width: 600px) {
+  .tab {
+    font-size: 13px;
+  }
 }
 
 .tab--selected {
