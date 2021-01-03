@@ -5,10 +5,8 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
-import router from "./router";
+import { mapActions } from "vuex";
 import CodeEditor from "./components/CodeEditor";
-import { TAB_PATHS } from "./store/modules/tabs";
 import { DESKTOP_BREAKPOINT } from "@/constants";
 
 export default {
@@ -18,32 +16,15 @@ export default {
   },
   created() {
     this.openTab(this.$route.meta.id);
-
-    this.handleWindowResize();
-    window.addEventListener("resize", this.handleWindowResize);
+    this.displayCorrectLayout();
   },
-  computed: mapGetters("viewport", ["onlyHeightChange"]),
   methods: {
     ...mapActions({
       openTab: "tabs/openTab",
       mobileView: "tabs/mobileView",
       desktopView: "tabs/desktopView",
-      setWindowSize: "viewport/setWindowSize",
     }),
-    handleWindowResize() {
-      if (this.onlyHeightChange(window)) {
-        return;
-      }
-
-      this.setWindowSize({
-        height: window.innerHeight,
-        width: window.innerWidth,
-      });
-
-      if (this.$route.path !== TAB_PATHS.IntroInCode) {
-        router.push(TAB_PATHS.IntroInCode);
-      }
-
+    displayCorrectLayout() {
       if (window.innerWidth < DESKTOP_BREAKPOINT) {
         this.mobileView();
         return;
