@@ -9,6 +9,7 @@ import { mapActions, mapGetters } from "vuex";
 import router from "./router";
 import CodeEditor from "./components/CodeEditor";
 import { TAB_PATHS } from "./store/modules/tabs";
+import { DESKTOP_BREAKPOINT } from "@/constants";
 
 export default {
   name: "App",
@@ -43,7 +44,7 @@ export default {
         router.push(TAB_PATHS.IntroInCode);
       }
 
-      if (window.innerWidth < 950) {
+      if (window.innerWidth < DESKTOP_BREAKPOINT) {
         this.mobileView();
         return;
       }
