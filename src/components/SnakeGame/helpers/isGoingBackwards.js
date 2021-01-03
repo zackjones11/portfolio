@@ -1,6 +1,6 @@
-import { DIRECTIONS, KEY_BIND } from "../constants";
+import { DIRECTIONS } from "../constants";
 
-const isGoingBackwards = ({ direction, keyCode }) => {
+const isGoingBackwards = ({ currDirection, newDirection }) => {
   const { Up, Down, Left, Right } = DIRECTIONS;
   const oposites = [
     `${Up}:${Down}`,
@@ -9,11 +9,11 @@ const isGoingBackwards = ({ direction, keyCode }) => {
     `${Right}:${Left}`,
   ];
 
-  if (!Object.values(DIRECTIONS).includes(direction)) {
+  if (!Object.values(DIRECTIONS).includes(currDirection)) {
     throw new Error("isGoingBackwards - Direction not supported");
   }
 
-  return oposites.includes(`${direction}:${KEY_BIND[keyCode]}`);
+  return oposites.includes(`${currDirection}:${newDirection}`);
 };
 
 export default isGoingBackwards;

@@ -17,6 +17,8 @@
       :class="$style.snake"
     />
 
+    <DirectionArrows v-if="showDirectionalArrows" @click="onDigitalKeyPress" />
+
     <div v-if="isGameOver" @click="startGame" :class="$style.board__gameOver">
       <h2 :class="$style.board__headline">
         PRESS <span>SPACEBAR</span> TO PLAY AGAIN
@@ -28,6 +30,7 @@
 <script>
 import { randomNumber } from "@/utils";
 import { DIRECTIONS, KEY_BIND, SPACE_BAR_CODE } from "./constants";
+import { DESKTOP_BREAKPOINT } from "@/constants";
 import {
   hasBitSelf,
   hasEatenFood,
@@ -35,9 +38,11 @@ import {
   isGoingBackwards,
   createNewSnakeHead,
 } from "./helpers";
+import DirectionArrows from "./DirectionArrows";
 
 export default {
   name: "SnakeGame",
+  components: { DirectionArrows },
   data() {
     return {
       isGameOver: false,
@@ -45,6 +50,11 @@ export default {
       food: { row: 7, column: 10 },
       direction: DIRECTIONS.Right,
     };
+  },
+  computed: {
+    showDirectionalArrows() {
+      return window.innerWidth < DESKTOP_BREAKPOINT;
+    },
   },
   props: {
     numOfCells: {
@@ -73,6 +83,16 @@ export default {
     resetData() {
       Object.assign(this.$data, this.$options.data());
     },
+    onDigitalKeyPress(direction) {
+      const isGoingForwards = !isGoingBackwards({
+        currDirection: this.direction,
+        newDirection: direction,
+      });
+
+      if (isGoingForwards) {
+        this.direction = direction;
+      }
+    },
     onKeyPress(event) {
       const keyCode = event.keyCode;
       const isSpaceBar = keyCode === SPACE_BAR_CODE;
@@ -83,8 +103,8 @@ export default {
 
       const isAllowedKey = Object.keys(KEY_BIND).includes(`${keyCode}`);
       const isGoingForwards = !isGoingBackwards({
-        direction: this.direction,
-        keyCode,
+        currDirection: this.direction,
+        newDirection: KEY_BIND[keyCode],
       });
 
       if (isAllowedKey && isGoingForwards) {
@@ -128,6 +148,7 @@ export default {
   display: grid;
   position: relative;
   width: 100%;
+  max-height: 500px;
   max-width: 500px;
   border: 4px solid var(--brown-200);
   background-color: var(--brown-100);
