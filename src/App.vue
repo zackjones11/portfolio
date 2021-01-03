@@ -15,8 +15,8 @@ export default {
     CodeEditor,
   },
   created() {
-    this.openTab(this.$route.meta.id);
     this.displayCorrectLayout();
+    this.openTab(this.$route.meta.id);
   },
   methods: {
     ...mapActions({
