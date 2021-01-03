@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import router from "./router";
 import CodeEditor from "./components/CodeEditor";
 import { TAB_PATHS } from "./store/modules/tabs";
@@ -21,13 +21,24 @@ export default {
     this.handleWindowResize();
     window.addEventListener("resize", this.handleWindowResize);
   },
+  computed: mapGetters("viewport", ["onlyHeightChange"]),
   methods: {
     ...mapActions({
       openTab: "tabs/openTab",
       mobileView: "tabs/mobileView",
       desktopView: "tabs/desktopView",
+      setWindowSize: "viewport/setWindowSize",
     }),
     handleWindowResize() {
+      if (this.onlyHeightChange(window)) {
+        return;
+      }
+
+      this.setWindowSize({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+
       if (this.$route.path !== TAB_PATHS.IntroInCode) {
         router.push(TAB_PATHS.IntroInCode);
       }
