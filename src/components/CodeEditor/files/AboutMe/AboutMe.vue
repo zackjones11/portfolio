@@ -66,12 +66,10 @@
           </BaseButton>
         </BaseLink>
 
-        <router-link :to="TAB_PATHS.PlaySnake">
-          <BaseButton>
-            <BaseIcon name="square" :width="6" :height="6" />
-            Play Snake
-          </BaseButton>
-        </router-link>
+        <BaseButton @click="router.push(TAB_PATHS.PlaySnake)">
+          <BaseIcon name="square" :width="6" :height="6" />
+          Play Snake
+        </BaseButton>
       </div>
     </div>
   </File>
@@ -79,6 +77,7 @@
 
 <script>
 import { CV_URL } from "@/constants";
+import router from "@/router";
 import { TAB_IDS, TAB_PATHS } from "@/store/modules/tabs";
 import File from "../File";
 import { yearsDifference } from "@/utils";
@@ -87,7 +86,7 @@ export default {
   name: "AboutMe",
   components: { File },
   data() {
-    return { CV_URL, TAB_IDS, TAB_PATHS };
+    return { router, CV_URL, TAB_IDS, TAB_PATHS };
   },
   computed: {
     yearsOfExperience() {
