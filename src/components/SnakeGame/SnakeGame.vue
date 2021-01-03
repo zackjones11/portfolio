@@ -127,10 +127,16 @@ export default {
 .board {
   display: grid;
   position: relative;
-  height: 400px;
-  width: 400px;
+  width: 100%;
+  max-width: 500px;
   border: 4px solid var(--brown-200);
   background-color: var(--brown-100);
+}
+
+.board:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
 }
 
 .board__gameOver {
