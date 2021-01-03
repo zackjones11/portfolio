@@ -16,7 +16,7 @@ import { mapGetters } from "vuex";
 import Tab from "../Tab";
 
 export default {
-  name: "CodeEditor",
+  name: "CodeEditorTabGroup",
   components: {
     Tab,
   },
