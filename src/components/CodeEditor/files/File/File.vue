@@ -10,9 +10,15 @@
 <script>
 import { mapGetters } from "vuex";
 import "@/code-theme.css";
+import Prism from "prismjs";
 
 export default {
   name: "CodeEditorFile",
+  updated() {
+    if (this.code) {
+      Prism.highlightAll();
+    }
+  },
   props: {
     id: {
       type: Number,

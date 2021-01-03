@@ -1,13 +1,11 @@
 import Vue from "vue";
 import App from "./App.vue";
-import VuePrism from "vue-prism";
 import store from "./store";
 import router from "./router";
 
 import "./variables.css";
 import "./main.css";
 
-Vue.use(VuePrism);
 Vue.config.productionTip = false;
 
 const registerGlobalComponents = (components) => {
