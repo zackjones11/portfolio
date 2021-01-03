@@ -17,7 +17,7 @@
       :class="$style.snake"
     />
 
-    <div v-if="isGameOver" :class="$style.board__gameOver">
+    <div v-if="isGameOver" @click="startGame" :class="$style.board__gameOver">
       <h2 :class="$style.board__headline">
         PRESS <span>SPACEBAR</span> TO PLAY AGAIN
       </h2>
@@ -163,6 +163,7 @@ export default {
   padding: 2px 9px;
   letter-spacing: 2px;
   font-size: 39px;
+  cursor: pointer;
 }
 
 .snake {
