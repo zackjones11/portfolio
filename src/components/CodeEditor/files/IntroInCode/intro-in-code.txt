@@ -9,7 +9,7 @@
 
   <p>
     Moin moin! Zack is a frontend developer from London living in Hamburg.
-    He currently works for ABOUT YOU GmbH within their Cloud division
+    He currently works for ABOUT YOU within their Cloud division
     developing the future of Content Management Systems. POW!
   </p>
 
@@ -18,7 +18,6 @@
     const languages = [
       'JavaScript / TypeScript', 
       'HTML & CSS',
-      'Python',
       'Golang'
     ];
 
@@ -33,8 +32,7 @@
       'Cypress',
       'Jest',
       'React Testing Library / Enzyme',
-      'Jenkins',
-      'Webpack',
+      'Webpack'
     ];
 
     const candidateSkills = [...languages, ...frameworks, ...libraries];

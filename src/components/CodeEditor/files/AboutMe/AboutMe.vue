@@ -3,7 +3,7 @@
     <div :class="$style.aboutMe__block">
       <BaseHeadline :level="3">Professional Me</BaseHeadline>
       <p>
-        I am a developer with over {{ yearsOfExperience }} years' experience
+        I am a developer with over {{ yearsOfExperience }} years experience
         mostly working with frontend technologies on a variety of exciting
         projects. I have worked with agencies such as
         <BaseLink href="https://6rs.co.uk" target="_blank"
@@ -22,9 +22,8 @@
         >
         and
         <BaseLink href="https://aboutyou.de" target="_blank"
-          >ABOUT YOU GmbH <BaseIcon name="unicorn" /></BaseLink
-        >. Want to know more?
-        <BaseLink target="_blank" :href="CV_URL">View my CV</BaseLink>.
+          >ABOUT YOU GmbH <BaseIcon name="unicorn"
+        /></BaseLink>
       </p>
     </div>
 
