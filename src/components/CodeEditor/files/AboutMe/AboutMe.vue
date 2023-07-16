@@ -16,14 +16,17 @@
         <BaseLink href="https://www.thebloggerprogramme.com" target="_blank"
           >The Blogger Programme</BaseLink
         >
-        and larger corporations including
+        and larger corporations including<br />
         <BaseLink href="https://www.skygroup.sky" target="_blank"
-          >Sky UK</BaseLink
-        >
-        and
+          >Sky UK <BaseIcon name="popcorn" /></BaseLink
+        >,
         <BaseLink href="https://aboutyou.de" target="_blank"
-          >ABOUT YOU GmbH <BaseIcon name="unicorn"
-        /></BaseLink>
+          >ABOUT YOU GmbH <BaseIcon name="dress" />
+        </BaseLink>
+        and
+        <BaseLink href="https://www.free-now.com" target="_blank"
+          >FREE NOW <BaseIcon name="taxi" />
+        </BaseLink>
       </p>
     </div>
 
