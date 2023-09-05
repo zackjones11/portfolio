@@ -3,9 +3,12 @@
     <div :class="$style.aboutMe__block">
       <BaseHeadline :level="3">Professional Me</BaseHeadline>
       <p>
-        I am a developer with over {{ yearsOfExperience }} years experience
-        mostly working with frontend technologies on a variety of exciting
-        projects. I have worked with agencies such as
+        I am an engineer with many years experience mainly specialising in
+        frontend technologies on a variety of exciting projects.
+      </p>
+
+      <p>
+        I have worked with agencies such as
         <BaseLink href="https://6rs.co.uk" target="_blank"
           >sixredsquares</BaseLink
         >
@@ -14,18 +17,19 @@
           >node london</BaseLink
         >, small start-ups like
         <BaseLink href="https://www.thebloggerprogramme.com" target="_blank"
-          >The Blogger Programme</BaseLink
+          >TBP</BaseLink
         >
-        and larger corporations including<br />
+        and larger corporations including
         <BaseLink href="https://www.skygroup.sky" target="_blank"
-          >Sky UK <BaseIcon name="popcorn" /></BaseLink
-        >,
+          >Sky UK
+        </BaseLink>
+        ,
         <BaseLink href="https://aboutyou.de" target="_blank"
-          >ABOUT YOU GmbH <BaseIcon name="dress" />
+          >ABOUT YOU
         </BaseLink>
         and
         <BaseLink href="https://www.free-now.com" target="_blank"
-          >FREE NOW <BaseIcon name="taxi" />
+          >FREE NOW
         </BaseLink>
       </p>
     </div>
@@ -82,19 +86,12 @@ import { CV_URL } from "@/constants";
 import router from "@/router";
 import { TAB_IDS, TAB_PATHS } from "@/store/modules/tabs";
 import File from "../File";
-import { yearsDifference } from "@/utils";
 
 export default {
   name: "AboutMe",
   components: { File },
   data() {
     return { router, CV_URL, TAB_IDS, TAB_PATHS };
-  },
-  computed: {
-    yearsOfExperience() {
-      const firstDay = "September 1, 2013";
-      return yearsDifference({ start: firstDay });
-    },
   },
 };
 </script>

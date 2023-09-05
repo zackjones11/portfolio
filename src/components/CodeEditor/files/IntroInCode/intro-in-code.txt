@@ -5,12 +5,12 @@
 </head>
 <body>
 
-  <h1>Looking for a developer?</h1>
+  <h1>Looking for an engineer?</h1>
 
   <p>
-    Moin moin! Zack is a frontend developer from London living in Hamburg.
+    Moin moin! Zack is a frontend engineer from London living in Hamburg.
     He currently works for FREE NOW within their core allocation team developing 
-    an algorithm to efficiently match the perfect driver and passenger. POW!
+    an algorithm to efficiently match the perfect driver and passenger.
   </p>
 
   <script type='text/javascript'>
