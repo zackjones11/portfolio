@@ -17,22 +17,24 @@
 
     const languages = [
       'JavaScript / TypeScript', 
-      'HTML & CSS',
-      'Java',
-      'Golang'
+      'HTML5 & CSS3',
+      'Kotlin'
     ];
 
     const frameworks = [
-      'React JS / React Native',
-      'Vue JS'
+      'React - Next.js - Vite',
+      'React Native',
+      'Vue JS',
+      'Spring Boot'
     ];
 
     const libraries = [
-      'Redux / MobX',
       'Styled Components',
-      'Cypress',
+      'TanStack Query',
+      'Cypress / Playwright',
       'Jest / React Testing Library',
-      'Webpack'
+      'Zustand',
+      'MobX'
     ];
 
     const candidateSkills = [...languages, ...frameworks, ...libraries];
